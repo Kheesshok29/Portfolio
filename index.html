@@ -1,122 +1,316 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Interactive Landing Page</title>
-  <style>
-    /* PAGE RESET */
-    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-    body, html { height:100%; font-family:sans-serif; color:#fff; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kheesshok S/O Vartharajoo - Professional Data Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Keyframes for the background animation */
+        @keyframes dataFlow {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 100% 100%; } /* Moves the pattern diagonally */
+        }
 
-    /* LIVE BACKGROUND (particle animation) */
-    #bg-canvas { position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1; }
+        /* General Body Styles */
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            /* Astonishing Data Developer Background */
+            background-color: #0c1a2c; /* Deep dark blue-purple */
+            background-image:
+                linear-gradient(rgba(10, 200, 250, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(10, 200, 250, 0.05) 1px, transparent 1px),
+                linear-gradient(rgba(10, 200, 250, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(10, 200, 250, 0.02) 1px, transparent 1px);
+            background-size: 50px 50px, 50px 50px, 15px 15px, 15px 15px; /* Two grids, one fine, one coarser */
+            animation: dataFlow 60s linear infinite; /* Slow, continuous diagonal movement */
+            background-attachment: fixed; /* Keeps background fixed when scrolling */
+        }
 
-    /* LAYOUT */
-    header, main, footer { position: relative; padding:2rem; max-width: 960px; margin:0 auto; width:100%; }
-    header { text-align:center; margin-top:4rem; }
-    h1 { font-size:3rem; margin-bottom:1rem; }
-    nav a { margin: 0 1rem; text-decoration:none; color:inherit; }
-    section { margin:4rem 0; }
-    footer { text-align:center; font-size:0.9rem; padding-bottom:2rem; }
+        /* Container for content */
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 30px auto;
+            overflow: hidden;
+            padding: 0;
+        }
 
-    /* BUTTON */
-    .cta { display:inline-block; padding:0.75rem 1.5rem; background:#ff4a4a; color:white; text-decoration:none; border-radius:4px; transition:background .3s; }
-    .cta:hover { background:#e04343; }
-  </style>
+        /* Header Styles */
+        header {
+            background: rgba(44, 62, 80, 0.95); /* Darker blue-gray with slight transparency */
+            color: #fff;
+            padding: 40px 20px;
+            min-height: 70px;
+            border-bottom: 5px solid #3498db; /* Brighter blue accent */
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Stronger shadow for depth */
+            margin-bottom: 30px;
+            text-align: center;
+            border-radius: 10px; /* Rounded corners for header */
+        }
+        header h1 {
+            font-size: 2.8em;
+            margin: 0 0 10px 0;
+            font-weight: 700;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5); /* Subtle text shadow */
+        }
+        header p {
+            font-size: 1.2em;
+            margin: 5px 0;
+            font-weight: 300;
+        }
+        header a {
+            color: #ecf0f1;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        header a:hover {
+            color: #3498db;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.97); /* Slightly transparent white for content */
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Stronger, softer shadow */
+            border-left: 5px solid #3498db;
+            backdrop-filter: blur(2px); /* Subtle blur effect on background behind section */
+        }
+        .section h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+            font-size: 2em;
+            font-weight: 700;
+        }
+        .section p {
+            color: #444; /* Slightly darker text for readability on white background */
+        }
+
+        /* Experience and Project Item Styles */
+        .experience-item, .project-item {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed #cccccc; /* Lighter dashed separator */
+        }
+        .experience-item:last-child, .project-item:last-child {
+            border-bottom: none;
+        }
+        .experience-item h3, .project-item h3 {
+            color: #34495e;
+            margin-bottom: 10px;
+            font-size: 1.5em;
+            font-weight: 600;
+        }
+        .experience-item ul, .project-item ul {
+            list-style: disc;
+            margin-left: 20px;
+            padding-left: 0;
+            color: #555; /* Slightly lighter list item text */
+        }
+        .experience-item li, .project-item li {
+            margin-bottom: 8px;
+            line-height: 1.8;
+        }
+        .project-item a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        .project-item a:hover {
+            text-decoration: underline;
+            color: #2a7bb8; /* Darker blue on hover */
+        }
+
+        /* Skills List Styles */
+        .skills-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+        }
+        .skills-list li {
+            background: #e9f5ff;
+            color: #2c3e50;
+            padding: 10px 20px;
+            border-radius: 25px;
+            border: 1px solid #a3d4ff;
+            font-weight: 500;
+            font-size: 0.95em;
+            transition: transform 0.2s ease, background-color 0.2s ease; /* Add transition for hover effect */
+        }
+        .skills-list li:hover {
+            transform: translateY(-3px); /* Lift effect on hover */
+            background-color: #d1eaff; /* Slightly darker blue on hover */
+        }
+
+        /* Contact Info Styles */
+        .contact-info {
+            text-align: center;
+            margin-top: 40px;
+            padding: 25px;
+            background: rgba(234, 243, 248, 0.97); /* Very light blue background with slight transparency */
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(1px); /* Subtle blur */
+        }
+        .contact-info p {
+            font-size: 1.1em;
+            margin: 5px 0;
+        }
+        .contact-info a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        .contact-info a:hover {
+            text-decoration: underline;
+            color: #2a7bb8;
+        }
+    </style>
 </head>
 <body>
-  <!-- Live Background -->
-  <canvas id="bg-canvas"></canvas>
+    <header>
+        <div class="container">
+            <h1>KHEESSHOK S/O VARTHARAJOO</h1>
+            <p>Professional Data Developer | Data Processing Specialist | Aspiring Data Analyst</p>
+            <p>Kuala Lumpur | +601114347229 | <a href="mailto:vkheesshok@gmail.com" style="color:#ecf0f1;">vkheesshok@gmail.com</a> | <a href="https://www.linkedin.com/in/kheesshok-vartharajoo-4233a4246/" target="_blank" style="color:#ecf0f1;">LinkedIn</a></p>
+        </div>
+    </header>
 
-  <header>
-    <h1>My Interactive Landing</h1>
-    <nav>
-      <a href="#features">Features</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <a class="cta" href="#contact">Get in Touch</a>
-  </header>
+    <div class="container">
+        <section class="section">
+            <h2>PROFILE</h2>
+            <p>Analytical and detail-oriented data professional with robust experience in data processing, large-scale data management, and insightful analytics. Proficient in advanced SQL, Python, Excel, Tableau, Power BI, and CRM systems. Passionate about leveraging data to build robust solutions, optimize processes, and drive impactful business decisions. Seeking a challenging data development role to apply technical skills and contribute to innovative data-driven strategies.</p>
+        </section>
 
-  <main>
-    <section id="features">
-      <h2>Features</h2>
-      <ul>
-        <li>Modern minimalist design</li>
-        <li>Interactive animations</li>
-        <li>Responsive layout</li>
-      </ul>
-    </section>
+        <section class="section">
+            <h2>TECHNICAL SKILLS</h2>
+            <ul class="skills-list">
+                <li>SQL</li>
+                <li>Python</li>
+                <li>Excel</li>
+                <li>Tableau</li>
+                <li>Power BI</li>
+                <li>R Programming</li>
+                <li>CRM (Salesforce, AS400P1, Cardpac)</li>
+                <li>Relational Databases (RDB)</li>
+                <li>Data Cleansing & Validation</li>
+                <li>Data Transformation</li>
+                <li>Reporting & Dashboarding</li>
+                <li>Data Security & Compliance</li>
+            </ul>
+        </section>
 
-    <section id="about">
-      <h2>About This Project</h2>
-      <p>This clean template offers a live particle background using vanilla JavaScript, plus semantic section layout you can easily expand.</p>
-    </section>
+        <section class="section">
+            <h2>WORK EXPERIENCE</h2>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <form>
-        <label>
-          Email:<br>
-          <input type="email" name="email" required>
-        </label><br><br>
-        <button type="submit" class="cta">Submit</button>
-      </form>
-    </section>
-  </main>
+            <div class="experience-item">
+                <h3>Data Processing Specialist, The Access Group, Kuala Lumpur (2024 - Present)</h3>
+                <ul>
+                    <li>Spearheaded accurate processing and maintenance of high volumes of operational and customer data utilizing Excel, Salesforce, and internal relational databases (RDB).</li>
+                    <li>Executed comprehensive data cleansing, validation, and deduplication to ensure consistency and accuracy across diverse systems.</li>
+                    <li>Applied advanced Excel functions (VLOOKUP, XLOOKUP, pivot tables, IF statements, conditional formatting) for complex data transformation, tracking, and reporting.</li>
+                    <li>Managed and monitored records in Salesforce CRM, ensuring timely data input, case tracking, and client information accuracy.</li>
+                    <li>Developed and executed SQL queries to extract, analyze, and verify large datasets for robust reporting and quality assurance initiatives.</li>
+                    <li>Provided critical data support to cross-functional teams by generating clean, reliable datasets tailored to specific business requirements.</li>
+                    <li>Designed and implemented dashboards and visual reports using Power BI to provide actionable insights into data trends, error rates, and processing efficiency.</li>
+                    <li>Identified and resolved data discrepancies through rigorous cross-referencing across multiple sources and application of logical data checks.</li>
+                    <li>Ensured stringent adherence to data security and compliance standards for sensitive customer and operational information.</li>
+                    <li>Contributed significantly to process improvement initiatives by identifying automation opportunities and standardizing reporting templates.</li>
+                </ul>
+            </div>
 
-  <footer>
-    &copy; 2025 Your Project Name
-  </footer>
+            <div class="experience-item">
+                <h3>Customer Service Professional, United Overseas Bank (UOB), Singapore (Remote) (2024-2025)</h3>
+                <ul>
+                    <li>Delivered frontline support for high-volume inbound customer inquiries across banking services, ensuring prompt and accurate resolution.</li>
+                    <li>Managed diverse customer requests including account maintenance, card activation/blocking, and digital banking assistance.</li>
+                    <li>Identified, reported, and resolved suspected fraudulent transactions and scam-related activity, including phishing attempts and unauthorized transfers.</li>
+                    <li>Collaborated with internal Fraud Risk and Investigation teams to escalate suspicious activity and support ongoing investigations.</li>
+                    <li>Ensured compliance with AML (Anti-Money Laundering), KYC (Know Your Customer), and internal fraud prevention policies.</li>
+                </ul>
+            </div>
 
-  <script>
-    // Simple particle animation
-    const canvas = document.getElementById('bg-canvas');
-    const ctx = canvas.getContext('2d');
-    const n = 100;
-    const particles = [];
+            <div class="experience-item">
+                <h3>On-Site Data & Documentation Personnel, DHL Express, Penang (2022-2023)</h3>
+                <ul>
+                    <li>Managed and updated shipment records, delivery manifests, and customs documentation to ensure smooth and compliant cross-border logistics operations.</li>
+                    <li>Processed daily shipment and clearance data using DHL's internal systems and tools, adhering to service-level agreements (SLAs) and compliance standards.</li>
+                    <li>Coordinated with various teams to ensure all documentation (e.g., air waybills, invoices, export declarations) was complete and accurate before dispatch.</li>
+                    <li>Handled real-time data entry and verification for high volumes of incoming and outgoing parcels, maintaining data integrity across all checkpoints.</li>
+                    <li>Conducted quality control checks on physical and digital documentation to identify discrepancies or missing information.</li>
+                    <li>Supported customs clearance by preparing required documents and uploading them to relevant platforms for review and processing.</li>
+                    <li>Utilized systems such as Excel and DHL's in-house shipment tracking tools.</li>
+                </ul>
+            </div>
+        </section>
 
-    function resize(){
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
-    window.addEventListener('resize', resize);
-    resize();
+        <section class="section">
+            <h2>PROJECTS</h2>
+            <div class="project-item">
+                <h3>HR Employee Attrition Analysis (Power BI & SQL)</h3>
+                <ul>
+                    <li>Conducted extensive Exploratory Data Analysis (EDA) to understand and identify key attrition trends within HR datasets.</li>
+                    <li>Utilized SQL for efficient extraction and rigorous cleaning of raw HR data, ensuring data integrity for analysis.</li>
+                    <li>Developed and deployed an interactive Power BI dashboard to visualize complex insights related to employee turnover.</li>
+                    <li>Presented actionable insights derived from the analysis, recommending strategies to significantly reduce employee turnover.</li>
+                    <li><a href="https://www.linkedin.com/feed/update/urn:li:activity:7338805251547779072/" target="_blank">View Project on LinkedIn</a></li>
+                </ul>
+            </div>
+        </section>
 
-    class P {
-      constructor(){
-        this.x = Math.random()*canvas.width;
-        this.y = Math.random()*canvas.height;
-        this.vx = (Math.random()-0.5)*0.5;
-        this.vy = (Math.random()-0.5)*0.5;
-        this.size = Math.random()*2+1;
-      }
-      move(){
-        this.x += this.vx;
-        this.y += this.vy;
-        if(this.x<0||this.x>canvas.width) this.vx *= -1;
-        if(this.y<0||this.y>canvas.height) this.vy *= -1;
-      }
-      draw(){
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI*2);
-        ctx.fillStyle = 'rgba(255,255,255,0.7)';
-        ctx.fill();
-      }
-    }
+        <section class="section">
+            <h2>EDUCATION</h2>
+            <p><strong>University of Science Malaysia (USM)</strong></p>
+            <p>Bachelor of Social Science (Anthropology & Sociology) (2018-2022)</p>
+        </section>
 
-    for(let i=0;i<n;i++) particles.push(new P());
+        <section class="section">
+            <h2>CERTIFICATIONS</h2>
+            <ul class="skills-list">
+                <li>Google Data Analytics Professional Certificate</li>
+                <li>Data Science Using Python and R</li>
+                <li>Advanced SQL (Parts 1 & 2)</li>
+                <li>Power BI Top Skills</li>
+                <li>Excel 2013: Pivot Tables & Advanced Formulas</li>
+            </ul>
+        </section>
 
-    function loop(){
-      ctx.clearRect(0,0,canvas.width,canvas.height);
-      for(const p of particles){
-        p.move();
-        p.draw();
-      }
-      requestAnimationFrame(loop);
-    }
-    loop();
-  </script>
+        <section class="section">
+            <h2>SOFT SKILLS</h2>
+            <ul class="skills-list">
+                <li>Problem-Solving & Critical Thinking</li>
+                <li>Communication & Collaboration</li>
+                <li>Attention to Detail</li>
+                <li>Time Management & Multitasking</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2>LANGUAGES</h2>
+            <ul class="skills-list">
+                <li>English (Fluent)</li>
+                <li>Malay (Fluent)</li>
+                <li>Tamil (Native)</li>
+            </ul>
+        </section>
+
+        <div class="contact-info">
+            <p>Feel free to connect with me!</p>
+            <p><a href="mailto:vkheesshok@gmail.com">vkheesshok@gmail.com</a> | <a href="https://www.linkedin.com/in/kheesshok-vartharajoo-4233a4246/" target="_blank">LinkedIn Profile</a></p>
+        </div>
+    </div>
 </body>
 </html>
