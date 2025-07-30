@@ -6,10 +6,18 @@
     <title>Kheesshok S/O Vartharajoo - Professional Data Developer</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        /* Keyframes for the background animation */
-        @keyframes dataFlow {
+        /* Keyframes for the astonishing background animation */
+        @keyframes dataFlowX {
+            0% { background-position-x: 0%; }
+            100% { background-position-x: 200%; } /* Move horizontally */
+        }
+        @keyframes dataFlowY {
+            0% { background-position-y: 0%; }
+            100% { background-position-y: 200%; } /* Move vertically */
+        }
+        @keyframes dataFlowDiagonal {
             0% { background-position: 0% 0%; }
-            100% { background-position: 100% 100%; } /* Moves the pattern diagonally */
+            100% { background-position: 200% 200%; } /* Move diagonally */
         }
 
         /* General Body Styles */
@@ -19,15 +27,37 @@
             margin: 0;
             padding: 0;
             color: #333;
-            /* Astonishing Data Developer Background */
-            background-color: #0c1a2c; /* Deep dark blue-purple */
+            /* Astonishing Live Data Developer Background */
+            background-color: #08101a; /* Very dark base */
             background-image:
-                linear-gradient(rgba(10, 200, 250, 0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(10, 200, 250, 0.05) 1px, transparent 1px),
-                linear-gradient(rgba(10, 200, 250, 0.02) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(10, 200, 250, 0.02) 1px, transparent 1px);
-            background-size: 50px 50px, 50px 50px, 15px 15px, 15px 15px; /* Two grids, one fine, one coarser */
-            animation: dataFlow 60s linear infinite; /* Slow, continuous diagonal movement */
+                /* Layer 1: Fine grid, moving slowly diagonal */
+                linear-gradient(rgba(0, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 255, 0.03) 1px, transparent 1px),
+                /* Layer 2: Larger hexagonal/dot pattern, very subtle, moving slowly X */
+                radial-gradient(circle at 10% 10%, rgba(0, 150, 200, 0.01) 1px, transparent 1px),
+                radial-gradient(circle at 90% 90%, rgba(0, 150, 200, 0.01) 1px, transparent 1px),
+                /* Layer 3: Faint diagonal lines, moving slowly Y */
+                linear-gradient(45deg, rgba(0, 200, 255, 0.01) 25%, transparent 25%, transparent 75%, rgba(0, 200, 255, 0.01) 75%, rgba(0, 200, 255, 0.01) 100%),
+                linear-gradient(-45deg, rgba(0, 200, 255, 0.01) 25%, transparent 25%, transparent 75%, rgba(0, 200, 255, 0.01) 75%, rgba(0, 200, 255, 0.01) 100%);
+
+            background-size:
+                30px 30px, /* Grid size */
+                30px 30px, /* Grid size */
+                100px 100px, /* Dot size */
+                100px 100px, /* Dot size */
+                100px 100px, /* Diagonal line size */
+                100px 100px; /* Diagonal line size */
+
+            background-position:
+                0 0, 0 0, /* Initial positions for grids */
+                0 0, 0 0, /* Initial positions for dots */
+                0 0, 0 0; /* Initial positions for diagonal lines */
+
+            animation:
+                dataFlowDiagonal 80s linear infinite, /* Grid 1 slow diagonal */
+                dataFlowX 120s linear infinite,      /* Dots slow horizontal */
+                dataFlowY 90s linear infinite;       /* Diagonal lines slow vertical */
+
             background-attachment: fixed; /* Keeps background fixed when scrolling */
         }
 
@@ -42,11 +72,11 @@
 
         /* Header Styles */
         header {
-            background: rgba(44, 62, 80, 0.95); /* Darker blue-gray with slight transparency */
+            background: rgba(20, 35, 50, 0.95); /* Darker blue-gray with slight transparency */
             color: #fff;
             padding: 40px 20px;
             min-height: 70px;
-            border-bottom: 5px solid #3498db; /* Brighter blue accent */
+            border-bottom: 5px solid #00bcd4; /* Brighter, tech-blue accent */
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Stronger shadow for depth */
             margin-bottom: 30px;
             text-align: center;
@@ -56,42 +86,43 @@
             font-size: 2.8em;
             margin: 0 0 10px 0;
             font-weight: 700;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5); /* Subtle text shadow */
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.6); /* More prominent text shadow */
         }
         header p {
             font-size: 1.2em;
             margin: 5px 0;
             font-weight: 300;
+            color: #e0f7fa; /* Lighter white for readability */
         }
         header a {
-            color: #ecf0f1;
+            color: #80deea; /* Lighter blue for header links */
             text-decoration: none;
             transition: color 0.3s ease;
         }
         header a:hover {
-            color: #3498db;
+            color: #00bcd4; /* Accent blue on hover */
         }
 
         /* Section Styles */
         .section {
             padding: 30px;
-            background: rgba(255, 255, 255, 0.97); /* Slightly transparent white for content */
+            background: rgba(255, 255, 255, 0.96); /* Slightly transparent white for content */
             margin-bottom: 30px;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Stronger, softer shadow */
-            border-left: 5px solid #3498db;
-            backdrop-filter: blur(2px); /* Subtle blur effect on background behind section */
+            border-left: 5px solid #00bcd4; /* Accent border */
+            backdrop-filter: blur(3px); /* Increased blur effect on background behind section */
         }
         .section h2 {
-            color: #2c3e50;
-            border-bottom: 2px solid #3498db;
+            color: #263238; /* Darker charcoal for headings */
+            border-bottom: 2px solid #00bcd4; /* Tech-blue underline for headings */
             padding-bottom: 10px;
             margin-bottom: 25px;
             font-size: 2em;
             font-weight: 700;
         }
-        .section p {
-            color: #444; /* Slightly darker text for readability on white background */
+        .section p, .section ul li {
+            color: #4a4a4a; /* Dark gray for readability on white background */
         }
 
         /* Experience and Project Item Styles */
@@ -104,7 +135,7 @@
             border-bottom: none;
         }
         .experience-item h3, .project-item h3 {
-            color: #34495e;
+            color: #37474f; /* Slightly lighter dark blue-gray */
             margin-bottom: 10px;
             font-size: 1.5em;
             font-weight: 600;
@@ -120,14 +151,14 @@
             line-height: 1.8;
         }
         .project-item a {
-            color: #3498db;
+            color: #0097a7; /* Darker tech-blue for links */
             text-decoration: none;
             font-weight: bold;
             transition: color 0.3s ease;
         }
         .project-item a:hover {
             text-decoration: underline;
-            color: #2a7bb8; /* Darker blue on hover */
+            color: #00bcd4; /* Accent blue on hover */
         }
 
         /* Skills List Styles */
@@ -140,18 +171,20 @@
             justify-content: center;
         }
         .skills-list li {
-            background: #e9f5ff;
-            color: #2c3e50;
+            background: #e0f7fa; /* Very light tech-blue background for skills */
+            color: #263238; /* Darker text */
             padding: 10px 20px;
             border-radius: 25px;
-            border: 1px solid #a3d4ff;
+            border: 1px solid #80deea; /* Light tech-blue border */
             font-weight: 500;
             font-size: 0.95em;
-            transition: transform 0.2s ease, background-color 0.2s ease; /* Add transition for hover effect */
+            transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
         .skills-list li:hover {
-            transform: translateY(-3px); /* Lift effect on hover */
-            background-color: #d1eaff; /* Slightly darker blue on hover */
+            transform: translateY(-3px);
+            background-color: #b2ebf2; /* Slightly darker blue on hover */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
 
         /* Contact Info Styles */
@@ -162,21 +195,21 @@
             background: rgba(234, 243, 248, 0.97); /* Very light blue background with slight transparency */
             border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(1px); /* Subtle blur */
+            backdrop-filter: blur(1px);
         }
         .contact-info p {
             font-size: 1.1em;
             margin: 5px 0;
         }
         .contact-info a {
-            color: #3498db;
+            color: #0097a7;
             text-decoration: none;
             font-weight: bold;
             transition: color 0.3s ease;
         }
         .contact-info a:hover {
             text-decoration: underline;
-            color: #2a7bb8;
+            color: #00bcd4;
         }
     </style>
 </head>
@@ -185,7 +218,7 @@
         <div class="container">
             <h1>KHEESSHOK S/O VARTHARAJOO</h1>
             <p>Professional Data Developer | Data Processing Specialist | Aspiring Data Analyst</p>
-            <p>Kuala Lumpur | +601114347229 | <a href="mailto:vkheesshok@gmail.com" style="color:#ecf0f1;">vkheesshok@gmail.com</a> | <a href="https://www.linkedin.com/in/kheesshok-vartharajoo-4233a4246/" target="_blank" style="color:#ecf0f1;">LinkedIn</a></p>
+            <p>Kuala Lumpur | +601114347229 | <a href="mailto:vkheesshok@gmail.com" style="color:#e0f7fa;">vkheesshok@gmail.com</a> | <a href="https://www.linkedin.com/in/kheesshok-vartharajoo-4233a4246/" target="_blank" style="color:#e0f7fa;">LinkedIn</a></p>
         </div>
     </header>
 
@@ -238,6 +271,7 @@
                     <li>Delivered frontline support for high-volume inbound customer inquiries across banking services, ensuring prompt and accurate resolution.</li>
                     <li>Managed diverse customer requests including account maintenance, card activation/blocking, and digital banking assistance.</li>
                     <li>Identified, reported, and resolved suspected fraudulent transactions and scam-related activity, including phishing attempts and unauthorized transfers.</li>
+                    <li>Guided customers through fraud reporting procedures and initiated account holds or card blocks to prevent further losses.</li>
                     <li>Collaborated with internal Fraud Risk and Investigation teams to escalate suspicious activity and support ongoing investigations.</li>
                     <li>Ensured compliance with AML (Anti-Money Laundering), KYC (Know Your Customer), and internal fraud prevention policies.</li>
                 </ul>
@@ -248,7 +282,7 @@
                 <ul>
                     <li>Managed and updated shipment records, delivery manifests, and customs documentation to ensure smooth and compliant cross-border logistics operations.</li>
                     <li>Processed daily shipment and clearance data using DHL's internal systems and tools, adhering to service-level agreements (SLAs) and compliance standards.</li>
-                    <li>Coordinated with various teams to ensure all documentation (e.g., air waybills, invoices, export declarations) was complete and accurate before dispatch.</li>
+                    <li>Coordinated with couriers, warehouse teams, and customs officers to ensure all documentation (e.g., air waybills, invoices, export declarations) was complete and accurate before dispatch.</li>
                     <li>Handled real-time data entry and verification for high volumes of incoming and outgoing parcels, maintaining data integrity across all checkpoints.</li>
                     <li>Conducted quality control checks on physical and digital documentation to identify discrepancies or missing information.</li>
                     <li>Supported customs clearance by preparing required documents and uploading them to relevant platforms for review and processing.</li>
