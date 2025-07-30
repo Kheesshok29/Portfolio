@@ -6,6 +6,12 @@
     <title>Kheesshok S/O Vartharajoo - Professional Data Developer</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
+        /* Keyframes for the background animation */
+        @keyframes dataFlow {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 100% 100%; } /* Moves the pattern diagonally */
+        }
+
         /* General Body Styles */
         body {
             font-family: 'Roboto', Arial, sans-serif;
@@ -14,9 +20,14 @@
             padding: 0;
             color: #333;
             /* Astonishing Data Developer Background */
-            background-color: #0d1a2d; /* Very dark blue-gray */
-            background-image: url('data:image/svg+xml,%3Csvg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%232e405a" fill-opacity="0.2"%3E%3Cpath d="M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c-5.523 0-10-4.477-10-10zm0-20c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c-5.523 0-10-4.477-10-10zM20 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c-5.523 0-10-4.477-10-10zm0-20c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c-5.523 0-10-4.477-10-10z"/%3E%3C/g%3E%3Cpath stroke="%233e5c82" stroke-width="1.5" stroke-opacity="0.3" d="M75 40L40 75M5 40L40 5M40 75L5 40M40 5L75 40M40 50L50 40M40 50L30 40M30 40L20 50M50 40L60 50M60 50L70 40M20 50L10 40M40 30L30 20M40 30L50 20M30 20L20 30M50 20L60 30M60 30L70 20M20 30L10 20"/%3E%3C/g%3E%3C/svg%3E'); /* Complex data network/circuit board pattern */
-            background-size: 80px 80px; /* Adjust for density */
+            background-color: #0c1a2c; /* Deep dark blue-purple */
+            background-image:
+                linear-gradient(rgba(10, 200, 250, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(10, 200, 250, 0.05) 1px, transparent 1px),
+                linear-gradient(rgba(10, 200, 250, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(10, 200, 250, 0.02) 1px, transparent 1px);
+            background-size: 50px 50px, 50px 50px, 15px 15px, 15px 15px; /* Two grids, one fine, one coarser */
+            animation: dataFlow 60s linear infinite; /* Slow, continuous diagonal movement */
             background-attachment: fixed; /* Keeps background fixed when scrolling */
         }
 
@@ -147,7 +158,7 @@
         .contact-info {
             text-align: center;
             margin-top: 40px;
-            padding: 25px; /* More padding */
+            padding: 25px;
             background: rgba(234, 243, 248, 0.97); /* Very light blue background with slight transparency */
             border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
