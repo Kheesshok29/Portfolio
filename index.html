@@ -1,72 +1,286 @@
-# Hi there, I'm Kheesshok S/O Vartharajoo 👋
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kheesshok S/O Vartharajoo - Professional Data Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* General Body Styles */
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            /* Subtle Pattern Background */
+            background-color: #f0f2f5; /* Light gray-blue */
+            background-image: url('data:image/svg+xml,%3Csvg width="6" height="6" viewBox="0 0 6 6" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%23cdd2d7" fill-opacity="0.2" fill-rule="evenodd"%3E%3Cpath d="M5 0h1L0 6V5zM6 5v1H5z"/%3E%3C/g%3E%3C/svg%3E');
+        }
 
-### Professional Data Developer | Aspiring Data Analyst
+        /* Container for content */
+        .container {
+            width: 90%; /* Slightly wider for more content space */
+            max-width: 1000px; /* Max width to prevent content from stretching too wide on large screens */
+            margin: 30px auto; /* More margin top/bottom */
+            overflow: hidden;
+            padding: 0; /* Remove internal padding */
+        }
 
-[cite_start]Analytical and detail-oriented data professional with robust experience in data processing, large-scale data management, and insightful analytics[cite: 5]. [cite_start]Passionate about leveraging data to build robust solutions, optimize processes, and drive impactful business decisions[cite: 7].
+        /* Header Styles */
+        header {
+            background: #2c3e50; /* Darker blue-gray */
+            color: #fff;
+            padding: 40px 20px; /* More padding */
+            min-height: 70px;
+            border-bottom: 5px solid #3498db; /* Brighter blue accent */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+            margin-bottom: 30px; /* Space below header */
+            text-align: center; /* Center header content */
+        }
+        header h1 {
+            font-size: 2.8em; /* Larger name */
+            margin: 0 0 10px 0;
+            font-weight: 700;
+        }
+        header p {
+            font-size: 1.2em;
+            margin: 5px 0;
+            font-weight: 300;
+        }
+        header a {
+            color: #ecf0f1; /* Lighter white for links */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        header a:hover {
+            color: #3498db; /* Blue on hover */
+        }
 
----
+        /* Section Styles */
+        .section {
+            padding: 30px; /* More internal padding */
+            background: #ffffff;
+            margin-bottom: 30px; /* Space between sections */
+            border-radius: 10px; /* More rounded corners */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Stronger, softer shadow */
+            border-left: 5px solid #3498db; /* Accent border */
+        }
+        .section h2 {
+            color: #2c3e50; /* Dark blue-gray for headings */
+            border-bottom: 2px solid #3498db; /* Blue underline for headings */
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+            font-size: 2em;
+            font-weight: 700;
+        }
 
-### 💡 **About Me**
+        /* Experience and Project Item Styles */
+        .experience-item, .project-item {
+            margin-bottom: 30px; /* More space between items */
+            padding-bottom: 20px;
+            border-bottom: 1px dashed #e0e0e0; /* Dashed separator */
+        }
+        .experience-item:last-child, .project-item:last-child {
+            border-bottom: none; /* No border for the last item */
+        }
+        .experience-item h3, .project-item h3 {
+            color: #34495e; /* Slightly lighter dark blue-gray */
+            margin-bottom: 10px;
+            font-size: 1.5em;
+            font-weight: 600;
+        }
+        .experience-item ul, .project-item ul {
+            list-style: disc; /* Use discs for lists */
+            margin-left: 20px;
+            padding-left: 0;
+        }
+        .experience-item li, .project-item li {
+            margin-bottom: 8px;
+            line-height: 1.8;
+        }
+        .project-item a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .project-item a:hover {
+            text-decoration: underline;
+        }
 
-* [cite_start]Currently processing and maintaining high volumes of operational and customer data at The Access Group[cite: 9, 10].
-* [cite_start]Expert in data cleansing, validation, and deduplication for consistency and accuracy across systems[cite: 11].
-* [cite_start]Skilled in transforming raw data into actionable insights using advanced tools and techniques[cite: 6].
-* [cite_start]Always seeking a data-focused role to apply analytical skills and drive business decisions[cite: 7].
+        /* Skills List Styles */
+        .skills-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px; /* More gap */
+            justify-content: center; /* Center skills */
+        }
+        .skills-list li {
+            background: #e9f5ff; /* Lighter blue background for skills */
+            color: #2c3e50; /* Darker text */
+            padding: 10px 20px;
+            border-radius: 25px; /* Pill shape */
+            border: 1px solid #a3d4ff; /* Light blue border */
+            font-weight: 500;
+            font-size: 0.95em;
+        }
 
----
+        /* Contact Info Styles */
+        .contact-info {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background: #eaf3f8; /* Very light blue background */
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        }
+        .contact-info p {
+            font-size: 1.1em;
+            margin: 5px 0;
+        }
+        .contact-info a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            [cite_start]<h1>KHEESSHOK S/O VARTHARAJOO [cite: 1]</h1>
+            <p>Professional Data Developer | Data Processing Specialist | [cite_start]Aspiring Data Analyst [cite: 2]</p>
+            <p>Kuala Lumpur | [cite_start]+601114347229 [cite: 3] | [cite_start]<a href="mailto:vkheesshok@gmail.com" style="color:#ecf0f1;">vkheesshok@gmail.com</a> [cite: 3] | [cite_start]<a href="https://www.linkedin.com/in/kheesshok-vartharajoo-4233a4246/" target="_blank" style="color:#ecf0f1;">LinkedIn</a> [cite: 3]</p>
+        </div>
+    </header>
 
-### 💻 **My Technical Stack**
+    <div class="container">
+        <section class="section">
+            [cite_start]<h2>PROFILE [cite: 4]</h2>
+            [cite_start]<p>Analytical and detail-oriented data professional with robust experience in data processing, large-scale data management, and insightful analytics. [cite: 5] [cite_start]Proficient in advanced SQL, Python, Excel, Tableau, Power BI, and CRM systems. [cite: 6] [cite_start]Passionate about leveraging data to build robust solutions, optimize processes, and drive impactful business decisions. [cite: 6, 7] [cite_start]Seeking a challenging data development role to apply technical skills and contribute to innovative data-driven strategies. [cite: 7]</p>
+        </section>
 
-**Languages:**
-[cite_start]![SQL](https://img.shields.io/badge/SQL-025E8C?style=for-the-badge&logo=postgresql&logoColor=white) [cite: 54]
-[cite_start]![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white) [cite: 63]
-[cite_start]![R](https://img.shields.io/badge/R-276DC3?style=for-the-badge&logo=r&logoColor=white) [cite: 58]
+        <section class="section">
+            [cite_start]<h2>TECHNICAL SKILLS [cite: 53]</h2>
+            <ul class="skills-list">
+                [cite_start]<li>SQL [cite: 54]</li>
+                [cite_start]<li>Python [cite: 63]</li>
+                [cite_start]<li>Excel [cite: 55]</li>
+                [cite_start]<li>Tableau [cite: 56]</li>
+                [cite_start]<li>Power BI [cite: 57]</li>
+                [cite_start]<li>R Programming [cite: 58]</li>
+                [cite_start]<li>CRM (Salesforce [cite: 60][cite_start], AS400P1 [cite: 61][cite_start], Cardpac [cite: 62][cite_start]) [cite: 59]</li>
+                [cite_start]<li>Relational Databases (RDB) [cite: 10]</li>
+                [cite_start]<li>Data Cleansing & Validation [cite: 11]</li>
+                [cite_start]<li>Data Transformation [cite: 12]</li>
+                [cite_start]<li>Reporting & Dashboarding [cite: 12, 16]</li>
+                [cite_start]<li>Data Security & Compliance [cite: 18, 28, 43]</li>
+            </ul>
+        </section>
 
-**Data Tools & Platforms:**
-[cite_start]![Excel](https://img.shields.io/badge/Excel-217346?style=for-the-badge&logo=microsoft-excel&logoColor=white) [cite: 55]
-[cite_start]![Tableau](https://img.shields.io/badge/Tableau-E97627?style=for-the-badge&logo=tableau&logoColor=white) [cite: 56]
-[cite_start]![Power BI](https://img.shields.io/badge/PowerBI-F2C811?style=for-the-badge&logo=power-bi&logoColor=black) [cite: 57]
-[cite_start]![Salesforce](https://img.shields.io/badge/Salesforce-00A1DF?style=for-the-badge&logo=salesforce&logoColor=white) [cite: 60]
-[cite_start]![CRM](https://img.shields.io/badge/CRM-6C5B7B?style=for-the-badge) [cite: 59]
+        <section class="section">
+            [cite_start]<h2>WORK EXPERIENCE [cite: 8]</h2>
 
-**Databases & Concepts:**
-* [cite_start]Relational Databases (RDB) [cite: 10, 14]
-* [cite_start]Data Cleansing & Validation [cite: 11]
-* [cite_start]Data Transformation [cite: 12]
-* [cite_start]Reporting & Dashboarding [cite: 16]
-* [cite_start]Data Security & Compliance [cite: 18]
+            <div class="experience-item">
+                [cite_start]<h3>Data Processing Specialist, The Access Group, Kuala Lumpur (2024 - Present) [cite: 9]</h3>
+                <ul>
+                    [cite_start]<li>Spearheaded accurate processing and maintenance of high volumes of operational and customer data utilizing Excel, Salesforce, and internal relational databases (RDB). [cite: 10]</li>
+                    [cite_start]<li>Executed comprehensive data cleansing, validation, and deduplication to ensure consistency and accuracy across diverse systems. [cite: 11]</li>
+                    [cite_start]<li>Applied advanced Excel functions (VLOOKUP, XLOOKUP, pivot tables, IF statements, conditional formatting) for complex data transformation, tracking, and reporting. [cite: 12]</li>
+                    [cite_start]<li>Managed and monitored records in Salesforce CRM, ensuring timely data input, case tracking, and client information accuracy. [cite: 13]</li>
+                    [cite_start]<li>Developed and executed SQL queries to extract, analyze, and verify large datasets for robust reporting and quality assurance initiatives. [cite: 14]</li>
+                    [cite_start]<li>Provided critical data support to cross-functional teams by generating clean, reliable datasets tailored to specific business requirements. [cite: 15]</li>
+                    [cite_start]<li>Designed and implemented dashboards and visual reports using Power BI to provide actionable insights into data trends, error rates, and processing efficiency. [cite: 16]</li>
+                    [cite_start]<li>Identified and resolved data discrepancies through rigorous cross-referencing across multiple sources and application of logical data checks. [cite: 17]</li>
+                    [cite_start]<li>Ensured stringent adherence to data security and compliance standards for sensitive customer and operational information. [cite: 18]</li>
+                    [cite_start]<li>Contributed significantly to process improvement initiatives by identifying automation opportunities and standardizing reporting templates. [cite: 19]</li>
+                </ul>
+            </div>
 
----
+            <div class="experience-item">
+                [cite_start]<h3>Customer Service Professional, United Overseas Bank (UOB), Singapore (Remote) (2024-2025) [cite: 20]</h3>
+                <ul>
+                    [cite_start]<li>Delivered frontline support for high-volume inbound customer inquiries across banking services, ensuring prompt and accurate resolution. [cite: 21]</li>
+                    [cite_start]<li>Managed diverse customer requests including account maintenance, card activation/blocking, and digital banking assistance. [cite: 22]</li>
+                    [cite_start]<li>Identified, reported, and resolved suspected fraudulent transactions and scam-related activity, including phishing attempts and unauthorized transfers. [cite: 23]</li>
+                    [cite_start]<li>Collaborated with internal Fraud Risk and Investigation teams to escalate suspicious activity and support ongoing investigations. [cite: 25]</li>
+                    [cite_start]<li>Ensured compliance with AML (Anti-Money Laundering), KYC (Know Your Customer), and internal fraud prevention policies. [cite: 28]</li>
+                </ul>
+            </div>
 
-### 📊 **Featured Projects**
+            <div class="experience-item">
+                [cite_start]<h3>On-Site Data & Documentation Personnel, DHL Express, Penang (2022-2023) [cite: 33]</h3>
+                <ul>
+                    [cite_start]<li>Managed and updated shipment records, delivery manifests, and customs documentation to ensure smooth and compliant cross-border logistics operations. [cite: 34]</li>
+                    [cite_start]<li>Processed daily shipment and clearance data using DHL's internal systems and tools, adhering to service-level agreements (SLAs) and compliance standards. [cite: 35]</li>
+                    [cite_start]<li>Coordinated with various teams to ensure all documentation (e.g., air waybills, invoices, export declarations) was complete and accurate before dispatch. [cite: 36]</li>
+                    [cite_start]<li>Handled real-time data entry and verification for high volumes of incoming and outgoing parcels, maintaining data integrity across all checkpoints. [cite: 37]</li>
+                    [cite_start]<li>Conducted quality control checks on physical and digital documentation to identify discrepancies or missing information. [cite: 38]</li>
+                    [cite_start]<li>Supported customs clearance by preparing required documents and uploading them to relevant platforms for review and processing. [cite: 39]</li>
+                    [cite_start]<li>Utilized systems such as Excel and DHL's in-house shipment tracking tools. [cite: 40]</li>
+                </ul>
+            </div>
+        </section>
 
-#### **1. HR Employee Attrition Analysis (Power BI & SQL)**
-* **Objective:** To understand attrition trends and provide actionable insights to reduce employee turnover.
-* **Key Contributions:**
-    * [cite_start]Conducted extensive Exploratory Data Analysis (EDA) to identify key attrition trends[cite: 75].
-    * [cite_start]Utilized SQL for efficient extraction and rigorous cleaning of raw HR data, ensuring data integrity[cite: 76].
-    * [cite_start]Developed and deployed an interactive Power BI dashboard to visualize complex insights related to employee turnover[cite: 77].
-    * [cite_start]Presented actionable insights derived from the analysis, recommending strategies to significantly reduce employee turnover[cite: 78].
-* [cite_start]**Live Demo/Code:** [View Project on LinkedIn](https://www.linkedin.com/feed/update/urn:li:activity:7338805251547779072/) [cite: 74, 78]
+        <section class="section">
+            [cite_start]<h2>PROJECTS [cite: 73]</h2>
+            <div class="project-item">
+                [cite_start]<h3>HR Employee Attrition Analysis (Power BI & SQL) [cite: 74]</h3>
+                <ul>
+                    [cite_start]<li>Conducted extensive Exploratory Data Analysis (EDA) to understand and identify key attrition trends within HR datasets. [cite: 75]</li>
+                    [cite_start]<li>Utilized SQL for efficient extraction and rigorous cleaning of raw HR data, ensuring data integrity for analysis. [cite: 76]</li>
+                    [cite_start]<li>Developed and deployed an interactive Power BI dashboard to visualize complex insights related to employee turnover. [cite: 77]</li>
+                    [cite_start]<li>Presented actionable insights derived from the analysis, recommending strategies to significantly reduce employee turnover. [cite: 78]</li>
+                    <li><a href="https://www.linkedin.com/feed/update/urn:li:activity:7338805251547779072/" target="_blank">View Project on LinkedIn</a></li>
+                </ul>
+            </div>
+        </section>
 
----
+        <section class="section">
+            [cite_start]<h2>EDUCATION [cite: 44]</h2>
+            [cite_start]<p><strong>University of Science Malaysia (USM)</strong> [cite: 45]</p>
+            [cite_start]<p>Bachelor of Social Science (Anthropology & Sociology) (2018-2022) [cite: 46]</p>
+        </section>
 
-### 🎓 **Education & Certifications**
+        <section class="section">
+            [cite_start]<h2>CERTIFICATIONS [cite: 47]</h2>
+            <ul class="skills-list">
+                [cite_start]<li>Google Data Analytics Professional Certificate [cite: 48]</li>
+                [cite_start]<li>Data Science Using Python and R [cite: 49]</li>
+                [cite_start]<li>Advanced SQL (Parts 1 & 2) [cite: 50]</li>
+                [cite_start]<li>Power BI Top Skills [cite: 51]</li>
+                [cite_start]<li>Excel 2013: Pivot Tables & Advanced Formulas [cite: 52]</li>
+            </ul>
+        </section>
 
-* [cite_start]**Bachelor of Social Science (Anthropology & Sociology)** - University of Science Malaysia (USM) [cite: 45, 46]
-* [cite_start]**Google Data Analytics Professional Certificate** [cite: 48]
-* [cite_start]**Data Science Using Python and R** [cite: 49]
-* [cite_start]**Advanced SQL (Parts 1 & 2)** [cite: 50]
-* [cite_start]**Power BI Top Skills** [cite: 51]
-* [cite_start]**Excel 2013: Pivot Tables & Advanced Formulas** [cite: 52]
+        <section class="section">
+            [cite_start]<h2>SOFT SKILLS [cite: 64]</h2>
+            <ul class="skills-list">
+                [cite_start]<li>Problem-Solving & Critical Thinking [cite: 65]</li>
+                [cite_start]<li>Communication & Collaboration [cite: 66]</li>
+                [cite_start]<li>Attention to Detail [cite: 67]</li>
+                [cite_start]<li>Time Management & Multitasking [cite: 68]</li>
+            </ul>
+        </section>
 
----
+        <section class="section">
+            [cite_start]<h2>LANGUAGES [cite: 69]</h2>
+            <ul class="skills-list">
+                [cite_start]<li>English (Fluent) [cite: 70]</li>
+                [cite_start]<li>Malay (Fluent) [cite: 71]</li>
+                [cite_start]<li>Tamil (Native) [cite: 72]</li>
+            </ul>
+        </section>
 
-### 📞 **Let's Connect!**
-
-* [cite_start]**LinkedIn:** [Kheesshok Vartharajoo](https://www.linkedin.com/in/kheesshok-vartharajoo-4233a4246/) [cite: 3]
-* [cite_start]**Email:** vkheesshok@gmail.com [cite: 3]
-* [cite_start]**Mobile:** +601114347229 [cite: 3]
-
----
-*Generated with 🖤 by an aspiring data developer. Last updated: July 2025.*
+        <div class="contact-info">
+            <p>Feel free to connect with me!</p>
+            <p><a href="mailto:vkheesshok@gmail.com">vkheesshok@gmail.com</a> | <a href="https://www.linkedin.com/in/kheesshok-vartharajoo-4233a4246/" target="_blank">LinkedIn Profile</a></p>
+        </div>
+    </div>
+</body>
+</html>
