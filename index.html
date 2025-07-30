@@ -13,36 +13,39 @@
             margin: 0;
             padding: 0;
             color: #333;
-            /* Data-Developer related background */
-            background-color: #1a1a2e; /* Dark blue-purple base */
-            background-image: url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%232c2c4d" fill-opacity="0.6" fill-rule="evenodd"%3E%3Cpath d="M0 9c0-1.82.026-3.633.076-5.437C.26 1.85 1.83 0 3.805 0h52.39C58.17 0 60 1.85 60 4.313c-.05.183-.1.365-.15.547L30 59.904 0 9z"/%3E%3C/g%3E%3C/svg%3E'); /* Subtle hexagonal grid */
-            background-size: 30px 30px; /* Adjust size for pattern density */
+            /* Astonishing Data Developer Background */
+            background-color: #0d1a2d; /* Very dark blue-gray */
+            background-image: url('data:image/svg+xml,%3Csvg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%232e405a" fill-opacity="0.2"%3E%3Cpath d="M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c-5.523 0-10-4.477-10-10zm0-20c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c-5.523 0-10-4.477-10-10zM20 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c-5.523 0-10-4.477-10-10zm0-20c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c-5.523 0-10-4.477-10-10z"/%3E%3C/g%3E%3Cpath stroke="%233e5c82" stroke-width="1.5" stroke-opacity="0.3" d="M75 40L40 75M5 40L40 5M40 75L5 40M40 5L75 40M40 50L50 40M40 50L30 40M30 40L20 50M50 40L60 50M60 50L70 40M20 50L10 40M40 30L30 20M40 30L50 20M30 20L20 30M50 20L60 30M60 30L70 20M20 30L10 20"/%3E%3C/g%3E%3C/svg%3E'); /* Complex data network/circuit board pattern */
+            background-size: 80px 80px; /* Adjust for density */
+            background-attachment: fixed; /* Keeps background fixed when scrolling */
         }
 
         /* Container for content */
         .container {
-            width: 90%; /* Slightly wider for more content space */
-            max-width: 1000px; /* Max width to prevent content from stretching too wide on large screens */
-            margin: 30px auto; /* More margin top/bottom */
+            width: 90%;
+            max-width: 1000px;
+            margin: 30px auto;
             overflow: hidden;
-            padding: 0; /* Remove internal padding */
+            padding: 0;
         }
 
         /* Header Styles */
         header {
-            background: #2c3e50; /* Darker blue-gray */
+            background: rgba(44, 62, 80, 0.95); /* Darker blue-gray with slight transparency */
             color: #fff;
-            padding: 40px 20px; /* More padding */
+            padding: 40px 20px;
             min-height: 70px;
             border-bottom: 5px solid #3498db; /* Brighter blue accent */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-            margin-bottom: 30px; /* Space below header */
-            text-align: center; /* Center header content */
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Stronger shadow for depth */
+            margin-bottom: 30px;
+            text-align: center;
+            border-radius: 10px; /* Rounded corners for header */
         }
         header h1 {
-            font-size: 2.8em; /* Larger name */
+            font-size: 2.8em;
             margin: 0 0 10px 0;
             font-weight: 700;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5); /* Subtle text shadow */
         }
         header p {
             font-size: 1.2em;
@@ -50,51 +53,56 @@
             font-weight: 300;
         }
         header a {
-            color: #ecf0f1; /* Lighter white for links */
+            color: #ecf0f1;
             text-decoration: none;
             transition: color 0.3s ease;
         }
         header a:hover {
-            color: #3498db; /* Blue on hover */
+            color: #3498db;
         }
 
         /* Section Styles */
         .section {
-            padding: 30px; /* More internal padding */
-            background: #ffffff; /* Sections remain white for contrast */
-            margin-bottom: 30px; /* Space between sections */
-            border-radius: 10px; /* More rounded corners */
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Stronger, softer shadow */
-            border-left: 5px solid #3498db; /* Accent border */
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.97); /* Slightly transparent white for content */
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Stronger, softer shadow */
+            border-left: 5px solid #3498db;
+            backdrop-filter: blur(2px); /* Subtle blur effect on background behind section */
         }
         .section h2 {
-            color: #2c3e50; /* Dark blue-gray for headings */
-            border-bottom: 2px solid #3498db; /* Blue underline for headings */
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
             padding-bottom: 10px;
             margin-bottom: 25px;
             font-size: 2em;
             font-weight: 700;
         }
+        .section p {
+            color: #444; /* Slightly darker text for readability on white background */
+        }
 
         /* Experience and Project Item Styles */
         .experience-item, .project-item {
-            margin-bottom: 30px; /* More space between items */
+            margin-bottom: 30px;
             padding-bottom: 20px;
-            border-bottom: 1px dashed #e0e0e0; /* Dashed separator */
+            border-bottom: 1px dashed #cccccc; /* Lighter dashed separator */
         }
         .experience-item:last-child, .project-item:last-child {
-            border-bottom: none; /* No border for the last item */
+            border-bottom: none;
         }
         .experience-item h3, .project-item h3 {
-            color: #34495e; /* Slightly lighter dark blue-gray */
+            color: #34495e;
             margin-bottom: 10px;
             font-size: 1.5em;
             font-weight: 600;
         }
         .experience-item ul, .project-item ul {
-            list-style: disc; /* Use discs for lists */
+            list-style: disc;
             margin-left: 20px;
             padding-left: 0;
+            color: #555; /* Slightly lighter list item text */
         }
         .experience-item li, .project-item li {
             margin-bottom: 8px;
@@ -104,9 +112,11 @@
             color: #3498db;
             text-decoration: none;
             font-weight: bold;
+            transition: color 0.3s ease;
         }
         .project-item a:hover {
             text-decoration: underline;
+            color: #2a7bb8; /* Darker blue on hover */
         }
 
         /* Skills List Styles */
@@ -115,27 +125,33 @@
             padding: 0;
             display: flex;
             flex-wrap: wrap;
-            gap: 12px; /* More gap */
-            justify-content: center; /* Center skills */
+            gap: 12px;
+            justify-content: center;
         }
         .skills-list li {
-            background: #e9f5ff; /* Lighter blue background for skills */
-            color: #2c3e50; /* Darker text */
+            background: #e9f5ff;
+            color: #2c3e50;
             padding: 10px 20px;
-            border-radius: 25px; /* Pill shape */
-            border: 1px solid #a3d4ff; /* Light blue border */
+            border-radius: 25px;
+            border: 1px solid #a3d4ff;
             font-weight: 500;
             font-size: 0.95em;
+            transition: transform 0.2s ease, background-color 0.2s ease; /* Add transition for hover effect */
+        }
+        .skills-list li:hover {
+            transform: translateY(-3px); /* Lift effect on hover */
+            background-color: #d1eaff; /* Slightly darker blue on hover */
         }
 
         /* Contact Info Styles */
         .contact-info {
             text-align: center;
             margin-top: 40px;
-            padding: 20px;
-            background: #eaf3f8; /* Very light blue background */
+            padding: 25px; /* More padding */
+            background: rgba(234, 243, 248, 0.97); /* Very light blue background with slight transparency */
             border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(1px); /* Subtle blur */
         }
         .contact-info p {
             font-size: 1.1em;
@@ -145,9 +161,11 @@
             color: #3498db;
             text-decoration: none;
             font-weight: bold;
+            transition: color 0.3s ease;
         }
         .contact-info a:hover {
             text-decoration: underline;
+            color: #2a7bb8;
         }
     </style>
 </head>
