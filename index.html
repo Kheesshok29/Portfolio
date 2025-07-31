@@ -3,765 +3,224 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KHEESSHOK's Portfolio</title>
-    <!-- Inter font from Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Kheesshok Vartharajoo - Data Developer Portfolio</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Custom Tailwind configuration -->
-    <script>
-      tailwind.config = {
-        darkMode: ["class"],
-        theme: {
-          container: {
-            center: true,
-            padding: '2rem',
-            screens: {
-              '2xl': '1400px'
-            }
-          },
-          extend: {
-            colors: {
-              border: 'hsl(var(--border))',
-              input: 'hsl(var(--input))',
-              ring: 'hsl(var(--ring))',
-              background: 'hsl(var(--background))',
-              foreground: 'hsl(var(--foreground))',
-              primary: {
-                DEFAULT: 'hsl(var(--primary))',
-                foreground: 'hsl(var(--primary-foreground))'
-              },
-              secondary: {
-                DEFAULT: 'hsl(var(--secondary))',
-                foreground: 'hsl(var(--secondary-foreground))'
-              },
-              destructive: {
-                DEFAULT: 'hsl(var(--destructive))',
-                foreground: 'hsl(var(--destructive-foreground))'
-              },
-              muted: {
-                DEFAULT: 'hsl(var(--muted))',
-                foreground: 'hsl(var(--muted-foreground))'
-              },
-              accent: {
-                DEFAULT: 'hsl(var(--accent))',
-                foreground: 'hsl(var(--accent-foreground))'
-              },
-              popover: {
-                DEFAULT: 'hsl(var(--popover))',
-                foreground: 'hsl(var(--popover-foreground))'
-              },
-              card: {
-                DEFAULT: 'hsl(var(--card))',
-                foreground: 'hsl(var(--card-foreground))'
-              },
-              sidebar: {
-                DEFAULT: 'hsl(var(--sidebar-background))',
-                foreground: 'hsl(var(--sidebar-foreground))',
-                primary: 'hsl(var(--sidebar-primary))',
-                'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-                accent: 'hsl(var(--sidebar-accent))',
-                'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-                border: 'hsl(var(--sidebar-border))',
-                ring: 'hsl(var(--sidebar-ring))'
-              },
-              dashboard: {
-                bg: 'hsl(var(--dashboard-bg))',
-                surface: 'hsl(var(--dashboard-surface))',
-                border: 'hsl(var(--dashboard-border))'
-              },
-              analytics: {
-                blue: 'hsl(var(--analytics-blue))',
-                green: 'hsl(var(--success-green))',
-                orange: 'hsl(var(--warning-orange))'
-              },
-              chart: {
-                1: 'hsl(var(--chart-1))',
-                2: 'hsl(var(--chart-2))',
-                3: 'hsl(var(--chart-3))',
-                4: 'hsl(var(--chart-4))',
-              }
-            },
-            borderRadius: {
-              lg: `var(--radius)`,
-              md: `calc(var(--radius) - 2px)`,
-              sm: `calc(var(--radius) - 4px)`,
-            },
-            keyframes: {
-              "accordion-down": {
-                from: { height: "0" },
-                to: { height: "var(--radix-accordion-content-height)" },
-              },
-              "accordion-up": {
-                from: { height: "var(--radix-accordion-content-height)" },
-                to: { height: "0" },
-              },
-            },
-            animation: {
-              "accordion-down": "accordion-down 0.2s ease-out",
-              "accordion-up": "accordion-up 0.2s ease-out",
-            },
-          },
-        },
-        plugins: [],
-      }
-    </script>
+    <!-- Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-      @tailwind base;
-      @tailwind components;
-      @tailwind utilities;
-
-      @layer base {
-        :root {
-          --background: 240 10% 4%;
-          --foreground: 0 0% 98%;
-          --card: 240 8% 8%;
-          --card-foreground: 0 0% 95%;
-          --popover: 240 8% 8%;
-          --popover-foreground: 0 0% 95%;
-          --primary: 217 91% 60%;
-          --primary-foreground: 0 0% 100%;
-          --secondary: 240 4% 16%;
-          --secondary-foreground: 0 0% 90%;
-          --muted: 240 6% 12%;
-          --muted-foreground: 240 5% 65%;
-          --accent: 142 76% 36%;
-          --accent-foreground: 0 0% 100%;
-          --destructive: 0 62% 50%;
-          --destructive-foreground: 0 0% 100%;
-          --border: 240 6% 20%;
-          --input: 240 6% 20%;
-          --ring: 217 91% 60%;
-          --radius: 0.75rem;
-          --dashboard-bg: 240 10% 4%;
-          --dashboard-surface: 240 8% 8%;
-          --dashboard-border: 240 6% 20%;
-          --analytics-blue: 217 91% 60%;
-          --success-green: 142 76% 36%;
-          --warning-orange: 38 92% 50%;
-          --chart-1: 217 91% 60%;
-          --chart-2: 142 76% 36%;
-          --chart-3: 262 83% 58%;
-          --chart-4: 38 92% 50%;
-          --gradient-primary: linear-gradient(135deg, hsl(217, 91%, 60%), hsl(262, 83%, 58%));
-          --gradient-surface: linear-gradient(145deg, hsl(240, 8%, 8%), hsl(240, 6%, 12%));
-          --gradient-accent: linear-gradient(90deg, hsl(142, 76%, 36%), hsl(217, 91%, 60%));
-          --sidebar-background: 0 0% 98%;
-          --sidebar-foreground: 240 5.3% 26.1%;
-          --sidebar-primary: 240 5.9% 10%;
-          --sidebar-primary-foreground: 0 0% 98%;
-          --sidebar-accent: 240 4.8% 95.9%;
-          --sidebar-accent-foreground: 240 5.9% 10%;
-          --sidebar-border: 220 13% 91%;
-          --sidebar-ring: 217.2 91.2% 59.8%;
-        }
-
-        .dark {
-          --background: 222.2 84% 4.9%;
-          --foreground: 210 40% 98%;
-          --card: 222.2 84% 4.9%;
-          --card-foreground: 210 40% 98%;
-          --popover: 222.2 84% 4.9%;
-          --popover-foreground: 210 40% 98%;
-          --primary: 210 40% 98%;
-          --primary-foreground: 222.2 47.4% 11.2%;
-          --secondary: 217.2 32.6% 17.5%;
-          --secondary-foreground: 210 40% 98%;
-          --muted: 217.2 32.6% 17.5%;
-          --muted-foreground: 215 20.2% 65.1%;
-          --accent: 217.2 32.6% 17.5%;
-          --accent-foreground: 210 40% 98%;
-          --destructive: 0 62.8% 30.6%;
-          --destructive-foreground: 210 40% 98%;
-          --border: 217.2 32.6% 17.5%;
-          --input: 217.2 32.6% 17.5%;
-          --ring: 212.7 26.8% 83.9%;
-          --sidebar-background: 240 5.9% 10%;
-          --sidebar-foreground: 240 4.8% 95.9%;
-          --sidebar-primary: 224.3 76.3% 48%;
-          --sidebar-primary-foreground: 0 0% 100%;
-          --sidebar-accent: 240 3.7% 15.9%;
-          --sidebar-accent-foreground: 240 4.8% 95.9%;
-          --sidebar-border: 240 3.7% 15.9%;
-          --sidebar-ring: 217.2 91.2% 59.8%;
-        }
-      }
-
-      @layer base {
-        * {
-          @apply border-border;
-        }
-
         body {
-          @apply bg-background text-foreground;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6; /* Light gray background */
+            color: #333;
         }
-      }
+        .section-title {
+            @apply text-3xl font-bold text-gray-800 mb-6 border-b-2 border-blue-500 pb-2;
+        }
+        .card {
+            @apply bg-white p-6 rounded-lg shadow-md;
+        }
+        .skill-badge {
+            @apply inline-block bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full mr-2 mb-2;
+        }
+        .project-link {
+            @apply text-blue-600 hover:underline font-medium;
+        }
     </style>
 </head>
-<body class="font-inter">
-    <div id="root" class="min-h-screen bg-dashboard-bg p-8 font-inter"></div>
+<body class="flex flex-col min-h-screen">
 
-    <script>
-        // Helper function to create elements with classes and content
-        function createElement(tag, classes = [], childrenArg, attributes = {}) {
-            const el = document.createElement(tag);
-            if (Array.isArray(classes)) {
-                el.classList.add(...classes);
-            } else if (typeof classes === 'string' && classes.length > 0) {
-                el.classList.add(...classes.split(' '));
-            }
+    <!-- Header Section -->
+    <header class="bg-gray-800 text-white py-8 shadow-lg">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between">
+            <div class="text-center md:text-left mb-4 md:mb-0">
+                <h1 class="text-4xl font-extrabold mb-2">KHEESSHOK S/O VARTHARAJOO</h1>
+                <p class="text-xl font-light text-gray-300">Data Processing Specialist | Aspiring Data Developer</p>
+            </div>
+            <div class="text-center md:text-right text-gray-300">
+                <p>Kuala Lumpur, Malaysia</p>
+                <p>+601114347229</p>
+                <p><a href="mailto:vkheesshok@gmail.com" class="hover:underline text-blue-300">vkheesshok@gmail.com</a></p>
+                <p><a href="https://www.linkedin.com/in/kheesshok-vartharajoo-4233a4246/" target="_blank" class="hover:underline text-blue-300">LinkedIn Profile</a></p>
+            </div>
+        </div>
+    </header>
 
-            // Ensure childrenArg is always an array for iteration
-            const childrenToAppend = Array.isArray(childrenArg) ? childrenArg : (childrenArg !== undefined && childrenArg !== null ? [childrenArg] : []);
+    <!-- Main Content Area -->
+    <main class="flex-1 container mx-auto px-4 py-8">
 
-            childrenToAppend.forEach(child => {
-                if (typeof child === 'string' || typeof child === 'number' || typeof child === 'boolean') {
-                    el.appendChild(document.createTextNode(String(child)));
-                } else if (child instanceof Node) {
-                    el.appendChild(child);
-                }
-            });
+        <!-- Profile Section -->
+        <section class="mb-10">
+            <h2 class="section-title">Profile</h2>
+            <div class="card">
+                <p class="text-gray-700 leading-relaxed">
+                    Analytical and detail-oriented data professional with robust experience in data processing, cleansing, and validation.
+                    Leveraging proficiency in SQL, Python, R, and Power BI, I am passionate about developing robust data solutions,
+                    automating processes, and transforming complex datasets into actionable insights.
+                    Seeking a challenging Data Developer role to build scalable data pipelines and drive business innovation.
+                </p>
+            </div>
+        </section>
 
-            for (const key in attributes) {
-                if (attributes.hasOwnProperty(key)) {
-                    if (key.startsWith('on') && typeof attributes[key] === 'function') {
-                        el.addEventListener(key.substring(2).toLowerCase(), attributes[key]);
-                    } else if (key === 'style' && typeof attributes[key] === 'object') {
-                        Object.assign(el.style, attributes[key]);
-                    } else {
-                        el.setAttribute(key, attributes[key]);
-                    }
-                }
-            }
-            return el;
-        }
+        <!-- Technical Skills Section -->
+        <section class="mb-10">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="card flex flex-wrap gap-2">
+                <span class="skill-badge">SQL (Advanced)</span>
+                <span class="skill-badge">Python</span>
+                <span class="skill-badge">R Programming</span>
+                <span class="skill-badge">Excel (Advanced)</span>
+                <span class="skill-badge">Power BI</span>
+                <span class="skill-badge">Tableau</span>
+                <span class="skill-badge">CRM Systems</span>
+                <span class="skill-badge">Salesforce</span>
+                <span class="skill-badge">Relational Databases (RDB)</span>
+                <span class="skill-badge">Data Cleansing & Validation</span>
+                <span class="skill-badge">Data Transformation</span>
+                <span class="skill-badge">Data Reporting & Visualization</span>
+                <span class="skill-badge">Automation Opportunities</span>
+            </div>
+        </section>
 
-        // SVG Icon Helper
-        function createSvgIcon(dPath, classes = []) {
-            const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-            svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
-            svg.setAttribute("width", "24");
-            svg.setAttribute("height", "24");
-            svg.setAttribute("viewBox", "0 0 24 24");
-            svg.setAttribute("fill", "none");
-            svg.setAttribute("stroke", "currentColor");
-            svg.setAttribute("stroke-width", "2");
-            svg.setAttribute("stroke-linecap", "round");
-            svg.setAttribute("stroke-linejoin", "round");
-            if (Array.isArray(classes)) {
-                svg.classList.add(...classes);
-            } else if (typeof classes === 'string' && classes.length > 0) {
-                svg.classList.add(...classes.split(' '));
-            }
+        <!-- Work Experience Section -->
+        <section class="mb-10">
+            <h2 class="section-title">Work Experience</h2>
 
-            const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-            path.setAttribute("d", dPath);
-            svg.appendChild(path);
-            return svg;
-        }
+            <!-- Experience 1: Data Processing Specialist -->
+            <div class="card mb-6">
+                <h3 class="text-xl font-semibold text-gray-800">Data Processing Specialist</h3>
+                <p class="text-lg text-gray-600">The Access Group, Kuala Lumpur</p>
+                <p class="text-sm text-gray-500 mb-3">2024 - Present</p>
+                <ul class="list-disc list-inside text-gray-700 space-y-2">
+                    <li>Accurately processed and maintained high volumes of operational and customer data using Excel, Salesforce, and internal relational databases (RDB).</li>
+                    <li>Performed comprehensive data cleansing, validation, and deduplication to ensure data consistency and accuracy across systems.</li>
+                    <li>Utilized advanced Excel functions (VLOOKUP, XLOOKUP, pivot tables, IF statements, conditional formatting) for complex data transformation, tracking, and reporting.</li>
+                    <li>Updated and monitored records in Salesforce CRM, ensuring timely data input, case tracking, and client information accuracy.</li>
+                    <li>Queried relational databases using SQL to extract, analyze, and verify large datasets for reporting and quality assurance.</li>
+                    <li>Supported cross-functional teams with data requests by generating clean, reliable datasets tailored to their business needs.</li>
+                    <li>Developed dashboards and visual reports using Power BI to provide insights into data trends, error rates, and processing efficiency.</li>
+                    <li>Identified and resolved discrepancies in datasets by cross-checking across multiple sources and applying logical data checks.</li>
+                    <li>Maintained strict data security and compliance standards in handling sensitive customer and operational information.</li>
+                    <li>Contributed to process improvement initiatives by suggesting automation opportunities and standardizing reporting templates.</li>
+                </ul>
+            </div>
 
-        // Lucide React SVG paths (simplified for common use cases)
-        const Icons = {
-            MapPin: (classes) => createSvgIcon("M12 18.7c-3.3 0-6-2.7-6-6s2.7-6 6-6 6 2.7 6 6-2.7 6-6 6zM12 2c-4.4 0-8 3.6-8 8s8 14 8 14 8-9.6 8-14-3.6-8-8-8z", classes),
-            Phone: (classes) => createSvgIcon("M22 16.92v3.08a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 4.11 2h3.08A2 2 0 0 1 9 3.82c0 .58-.15 1.25-.53 1.91l-2.47 2.47a15 15 0 0 0 6 6l2.47-2.47c.66-.38 1.33-.53 1.91-.53H20a2 2 0 0 1 2 2.18z", classes),
-            Mail: (classes) => createSvgIcon("M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2zM22 6l-10 7L2 6", classes),
-            Linkedin: (classes) => createSvgIcon("M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2zM4 6a2 2 0 1 0 0-4 2 2 0 0 0 0 4z", classes),
-            Download: (classes) => createSvgIcon("M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4m4-7 5 5 5-5m-5 5V3", classes),
-            Building2: (classes) => createSvgIcon("M18 22V2H6v20H2v2h20v-2h-4zM10 20h4V4h-4v16z", classes),
-            Calendar: (classes) => createSvgIcon("M8 2v4m8-4v4m-4-2v6m-5 4h10a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z", classes),
-            ExternalLink: (classes) => createSvgIcon("M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6m4-3h6V9m-5 5L21 3", classes),
-            BarChart3: (classes) => createSvgIcon("M12 20V10M18 20V4M6 20v-4", classes),
-            Database: (classes) => createSvgIcon("M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5", classes),
-            TrendingUp: (classes) => createSvgIcon("m22 7-7 7-4-4-5 5m0 0h4m0 0V7", classes),
-            Code: (classes) => createSvgIcon("M16 18l6-6-6-6M8 6L2 12l6 6", classes),
-            MessageSquare: (classes) => createSvgIcon("M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z", classes),
-            Globe: (classes) => createSvgIcon("M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zM12 2a10 10 0 0 0 0 20zM2 12h20M12 2v20M12 2c-2.761 0-5 2.239-5 5s2.239 5 5 5 5-2.239 5-5-2.239-5-5-5zM12 22c2.761 0 5-2.239 5-5s-2.239-5-5-5-5 2.239-5 5 2.239 5 5 5z", classes),
-            Users: (classes) => createSvgIcon("M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M12 7a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm6 3a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 0v11m0-11a3 3 0 1 1 0-6 3 3 0 0 1 0 6z", classes),
-            Award: (classes) => createSvgIcon("M12 15.5l-3.5 2 1-4.5-3.5-3.5 4.5-.5 2-4.5 2 4.5 4.5.5-3.5 3.5 1 4.5z", classes),
-        };
+            <!-- Experience 2: United Overseas Bank (UOB) - Rephrased for data relevance -->
+            <div class="card mb-6">
+                <h3 class="text-xl font-semibold text-gray-800">Customer Service Representative (Remote)</h3>
+                <p class="text-lg text-gray-600">United Overseas Bank (UOB), Singapore</p>
+                <p class="text-sm text-gray-500 mb-3">2024 - 2025</p>
+                <ul class="list-disc list-inside text-gray-700 space-y-2">
+                    <li>Managed high-volume customer inquiries across various banking services, often involving data retrieval and verification from internal systems.</li>
+                    <li>Identified and resolved suspected fraudulent transactions, which involved analyzing patterns and data points to detect anomalies.</li>
+                    <li>Maintained accurate documentation of all fraud cases, contributing to a robust dataset for risk analysis and prevention.</li>
+                    <li>Educated customers on secure banking practices, implicitly involving the understanding and communication of data security principles.</li>
+                    <li>Consistently met performance KPIs, demonstrating efficiency in data handling and problem resolution in a fast-paced environment.</li>
+                </ul>
+            </div>
 
+            <!-- Experience 3: On-Site Data & Documentation Personnel - Rephrased for data relevance -->
+            <div class="card">
+                <h3 class="text-xl font-semibold text-gray-800">On-Site Data & Documentation Personnel</h3>
+                <p class="text-lg text-gray-600">DHL Express, Penang</p>
+                <p class="text-sm text-gray-500 mb-3">2022 - 2023</p>
+                <ul class="list-disc list-inside text-gray-700 space-y-2">
+                    <li>Managed and updated shipment records, delivery manifests, and customs documentation, ensuring data integrity for cross-border logistics.</li>
+                    <li>Accurately processed daily shipment and clearance data using DHL's internal systems, adhering to data quality and compliance standards.</li>
+                    <li>Conducted quality control checks on physical and digital documentation to identify discrepancies or missing information, crucial for data accuracy.</li>
+                    <li>Supported customs clearance by preparing and uploading required documents to relevant platforms for review and processing, involving efficient data flow.</li>
+                    <li>Monitored shipment delays or documentation issues and flagged them for quick resolution, indicating proactive data monitoring.</li>
+                    <li>Maintained organized filing systems (both digital and physical) to ensure traceability and audit readiness of data.</li>
+                </ul>
+            </div>
+        </section>
 
-        // Mock UI Components (simplified versions of shadcn/ui components for direct HTML)
-        function Badge({ children, variant, className }) {
-            let baseClasses = "inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2";
-            if (variant === "secondary") {
-                baseClasses += " bg-secondary text-secondary-foreground hover:bg-secondary/80";
-            } else if (variant === "outline") {
-                baseClasses += " border-current text-current";
-            }
-            return createElement('div', `${baseClasses} ${className}`, [children]);
-        }
+        <!-- Projects Section -->
+        <section class="mb-10">
+            <h2 class="section-title">Projects</h2>
+            <div class="card">
+                <h3 class="text-xl font-semibold text-gray-800 mb-2">HR Employee Attrition Analysis (Power BI & SQL)</h3>
+                <ul class="list-disc list-inside text-gray-700 space-y-2 mb-3">
+                    <li>Conducted Exploratory Data Analysis (EDA) to understand attrition trends and identify key contributing factors.</li>
+                    <li>Utilized SQL to extract, clean, and transform raw HR data from relational databases, preparing it for analysis.</li>
+                    <li>Designed and developed an interactive Power BI dashboard to visualize complex insights, enabling stakeholders to explore attrition patterns.</li>
+                    <li>Delivered actionable insights and data-driven recommendations that contributed to strategies for reducing employee turnover.</li>
+                </ul>
+                <a href="https://www.linkedin.com/feed/update/urn:li:activity:7338805251547779072/" target="_blank" class="project-link">View Project on LinkedIn</a>
+                <!-- Consider adding a GitHub link here if the code is public -->
+                <!-- <a href="YOUR_GITHUB_PROJECT_LINK" target="_blank" class="project-link ml-4">View Code on GitHub</a> -->
+            </div>
+            <!-- You can add more project cards here -->
+            <!--
+            <div class="card mt-6">
+                <h3 class="text-xl font-semibold text-gray-800 mb-2">Project Title (Technologies Used)</h3>
+                <ul class="list-disc list-inside text-gray-700 space-y-2 mb-3">
+                    <li>Description of your role and contributions.</li>
+                    <li>Technologies and methodologies used.</li>
+                    <li>Key outcomes or impact.</li>
+                </ul>
+                <a href="#" target="_blank" class="project-link">Live Demo (if applicable)</a>
+                <a href="#" target="_blank" class="project-link ml-4">View Code on GitHub</a>
+            </div>
+            -->
+        </section>
 
-        function Button({ children, variant, size, className, onClick }) {
-            let baseClasses = "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50";
-            if (variant === "outline") {
-                baseClasses += " border border-input bg-background hover:bg-accent hover:text-accent-foreground";
-            } else { // Default to primary-like button
-                baseClasses += " bg-primary text-primary-foreground hover:bg-primary/90";
-            }
-            if (size === "sm") {
-                baseClasses += " h-9 px-3";
-            } else { // Default size
-                baseClasses += " h-10 px-4 py-2";
-            }
-            return createElement('button', `${baseClasses} ${className}`, children, { onclick: onClick });
-        }
+        <!-- Education Section -->
+        <section class="mb-10">
+            <h2 class="section-title">Education</h2>
+            <div class="card">
+                <h3 class="text-xl font-semibold text-gray-800">Bachelor of Social Science (Anthropology & Sociology)</h3>
+                <p class="text-lg text-gray-600">University of Science Malaysia (USM)</p>
+                <p class="text-sm text-gray-500">2018 - 2022</p>
+            </div>
+        </section>
 
-        function Card({ children, className }) {
-            return createElement('div', `rounded-xl border bg-card text-card-foreground shadow ${className}`, children);
-        }
+        <!-- Certifications Section -->
+        <section class="mb-10">
+            <h2 class="section-title">Certifications</h2>
+            <div class="card flex flex-wrap gap-2">
+                <span class="skill-badge">Google Data Analytics Professional Certificate</span>
+                <span class="skill-badge">Data Science Using Python and R</span>
+                <span class="skill-badge">Advanced SQL (Parts 1 & 2)</span>
+                <span class="skill-badge">Power BI Top Skills</span>
+                <span class="skill-badge">Excel 2013: Pivot Tables & Advanced Formulas</span>
+            </div>
+        </section>
 
-        function CardHeader({ children, className }) {
-            return createElement('div', `flex flex-col space-y-1.5 p-6 ${className}`, children);
-        }
+        <!-- Soft Skills Section -->
+        <section class="mb-10">
+            <h2 class="section-title">Soft Skills</h2>
+            <div class="card flex flex-wrap gap-2">
+                <span class="skill-badge">Problem-Solving & Critical Thinking</span>
+                <span class="skill-badge">Communication & Collaboration</span>
+                <span class="skill-badge">Attention to Detail</span>
+                <span class="skill-badge">Time Management & Multitasking</span>
+            </div>
+        </section>
 
-        function CardTitle({ children, className }) {
-            return createElement('h3', `font-semibold leading-none tracking-tight text-lg ${className}`, children);
-        }
+        <!-- Languages Section -->
+        <section class="mb-10">
+            <h2 class="section-title">Languages</h2>
+            <div class="card flex flex-wrap gap-2">
+                <span class="skill-badge">English (Fluent)</span>
+                <span class="skill-badge">Malay (Fluent)</span>
+                <span class="skill-badge">Tamil (Native)</span>
+            </div>
+        </section>
 
-        function CardContent({ children, className }) {
-            return createElement('div', `p-6 pt-0 ${className}`, children);
-        }
+    </main>
 
-        function Progress({ value, className }) {
-            const progressDiv = createElement('div', "h-full w-full flex-1 bg-primary transition-all", [], { style: { transform: `translateX(-${100 - (value || 0)}%)` } });
-            return createElement('div', `relative h-2 w-full overflow-hidden rounded-full bg-secondary ${className}`, [progressDiv]);
-        }
+    <!-- Footer Section -->
+    <footer class="bg-gray-800 text-white py-6 text-center shadow-inner">
+        <div class="container mx-auto px-4">
+            <p>&copy; 2025 Kheesshok Vartharajoo. All rights reserved.</p>
+            <p class="text-sm text-gray-400 mt-2">
+                Connect with me on <a href="https://www.linkedin.com/in/kheesshok-vartharajoo-4233a4246/" target="_blank" class="hover:underline text-blue-300">LinkedIn</a>
+            </p>
+        </div>
+    </footer>
 
-        // Original Components converted to plain JS functions
-        function DashboardHeader() {
-            const headerDiv = createElement('div', "bg-gradient-surface border border-dashboard-border rounded-xl p-8 mb-8");
-            const flexContainer = createElement('div', "flex flex-col lg:flex-row items-start justify-between gap-6");
-
-            const flex1 = createElement('div', "flex-1");
-            const titleBadgeContainer = createElement('div', "flex items-center gap-3 mb-2");
-            titleBadgeContainer.appendChild(createElement('h1', "text-4xl font-bold bg-gradient-primary bg-clip-text text-transparent", ["KHEESSHOK S/O VARTHARAJOO"]));
-            titleBadgeContainer.appendChild(Badge({ variant: "secondary", className: "bg-analytics-blue text-primary-foreground", children: "Available" }));
-            flex1.appendChild(titleBadgeContainer);
-            flex1.appendChild(createElement('p', "text-xl text-muted-foreground mb-4", ["Data Processing Specialist | Aspiring Data Analyst"]));
-
-            const contactInfo = createElement('div', "flex flex-wrap gap-4 text-sm text-muted-foreground mb-6");
-            contactInfo.appendChild(createElement('div', "flex items-center gap-2", [Icons.MapPin("w-4 h-4 text-primary"), "Kuala Lumpur"]));
-            contactInfo.appendChild(createElement('div', "flex items-center gap-2", [Icons.Phone("w-4 h-4 text-primary"), "+601114347229"]));
-            contactInfo.appendChild(createElement('div', "flex items-center gap-2", [Icons.Mail("w-4 h-4 text-primary"), "vkheesshok@gmail.com"]));
-            contactInfo.appendChild(createElement('a', "flex items-center gap-2 hover:text-primary transition-colors", [Icons.Linkedin("w-4 h-4 text-primary"), "LinkedIn Profile"], { href: "https://www.linkedin.com/in/kheesshok-vartharajoo-4233a4246/", target: "_blank", rel: "noopener noreferrer" }));
-            flex1.appendChild(contactInfo);
-
-            flex1.appendChild(createElement('p', "text-muted-foreground leading-relaxed", ["Analytical and detail-oriented data professional with experience in data processing, customer service, and analytics. Proficient in SQL, Excel, Tableau, Power BI, and CRM systems. Passionate about transforming raw data into actionable insights."]));
-
-            flexContainer.appendChild(flex1);
-
-            const buttonsContainer = createElement('div', "flex flex-col gap-3");
-            buttonsContainer.appendChild(Button({ className: "bg-primary hover:bg-primary/90", children: [Icons.Download("w-4 h-4 mr-2"), "Download Resume"] }));
-            buttonsContainer.appendChild(Button({ variant: "outline", className: "border-primary text-primary hover:bg-primary hover:text-primary-foreground", children: "Contact Me" }));
-            flexContainer.appendChild(buttonsContainer);
-
-            headerDiv.appendChild(flexContainer);
-            return headerDiv;
-        }
-
-        function ExperienceTimeline() {
-            const experiences = [
-                {
-                    title: "Data Processing Specialist",
-                    company: "The Access Group",
-                    location: "Kuala Lumpur",
-                    period: "2024 – Present",
-                    type: "Full-time",
-                    highlights: [
-                        "Accurately processed and maintained high volumes of operational and customer data using Excel, Salesforce, and internal relational databases (RDB)",
-                        "Performed data cleansing, validation, and deduplication to ensure consistency and accuracy across systems",
-                        "Utilized advanced Excel functions (VLOOKUP, XLOOKUP, pivot tables, IF statements, conditional formatting) for data transformation",
-                        "Queried relational databases using SQL to extract, analyze, and verify large datasets for reporting and quality assurance",
-                        "Created dashboards and visual reports using Power BI to provide insights into data trends, error rates, and processing efficiency",
-                        "Contributed to process improvement initiatives by suggesting automation opportunities and standardizing reporting templates"
-                    ]
-                },
-                {
-                    title: "Customer Service Representative (Remote)",
-                    company: "United Overseas Bank (UOB)",
-                    location: "Singapore",
-                    period: "2024 - 2025",
-                    type: "Remote",
-                    highlights: [
-                        "Delivered frontline support for high-volume inbound customer inquiries via phone, email, and digital platforms",
-                        "Identified, reported, and resolved suspected fraudulent transactions and scam-related activity",
-                        "Collaborated with internal Fraud Risk and Investigation teams to escalate suspicious activity and support ongoing investigations",
-                        "Educated customers on fraud prevention, secure banking practices, and how to recognize scam tactics",
-                        "Ensured compliance with AML (Anti-Money Laundering), KYC (Know Your Customer), and internal fraud prevention policies",
-                        "Consistently met or exceeded performance KPIs including average handling time (AHT), customer satisfaction (CSAT), and first call resolution (FCR)"
-                    ]
-                },
-                {
-                    title: "On-Site Data & Documentation Personnel",
-                    company: "DHL Express",
-                    location: "Penang",
-                    period: "2022 – 2023",
-                    type: "Full-time",
-                    highlights: [
-                        "Managed and updated shipment records, delivery manifests, and customs documentation to ensure smooth cross-border logistics operations",
-                        "Accurately processed daily shipment and clearance data using DHL's internal systems and tools",
-                        "Coordinated with couriers, warehouse teams, and customs officers to ensure all documentation was complete and accurate",
-                        "Handled real-time data entry and verification for high volumes of incoming and outgoing parcels",
-                        "Conducted quality control checks on physical and digital documentation to identify discrepancies",
-                        "Supported customs clearance by preparing required documents and uploading them to relevant platforms"
-                    ]
-                }
-            ];
-
-            const getCompanyColor = (company) => {
-                switch (company) {
-                    case "The Access Group": return "bg-primary";
-                    case "United Overseas Bank (UOB)": return "bg-analytics-blue";
-                    case "DHL Express": return "bg-analytics-orange";
-                    default: return "bg-muted";
-                }
-            };
-
-            const card = Card({ className: "bg-dashboard-surface border-dashboard-border mb-8" });
-            card.appendChild(CardHeader({ children: CardTitle({ className: "flex items-center gap-2", children: [Icons.Building2("w-5 h-5 text-primary"), "Work Experience"] }) }));
-            const cardContent = CardContent();
-            const relativeDiv = createElement('div', "relative");
-            relativeDiv.appendChild(createElement('div', "absolute left-6 top-0 bottom-0 w-0.5 bg-dashboard-border"));
-            const spaceY8 = createElement('div', "space-y-8");
-
-            experiences.forEach((exp, index) => {
-                const experienceDiv = createElement('div', "relative flex gap-6");
-                experienceDiv.appendChild(createElement('div', `w-12 h-12 rounded-full ${getCompanyColor(exp.company)} flex items-center justify-center z-10`, [Icons.Building2("w-6 h-6 text-white")]));
-
-                const contentDiv = createElement('div', "flex-1 pb-8");
-                const titleBadgeDiv = createElement('div', "flex flex-col sm:flex-row sm:items-center gap-2 mb-3");
-                titleBadgeDiv.appendChild(createElement('h3', "text-xl font-semibold", [exp.title]));
-                titleBadgeDiv.appendChild(Badge({ variant: "outline", className: "w-fit border-primary text-primary", children: exp.type }));
-                contentDiv.appendChild(titleBadgeDiv);
-
-                const infoDiv = createElement('div', "flex flex-col sm:flex-row gap-4 mb-4 text-sm text-muted-foreground");
-                infoDiv.appendChild(createElement('div', "flex items-center gap-2", [Icons.Building2("w-4 h-4"), exp.company]));
-                infoDiv.appendChild(createElement('div', "flex items-center gap-2", [Icons.MapPin("w-4 h-4"), exp.location]));
-                infoDiv.appendChild(createElement('div', "flex items-center gap-2", [Icons.Calendar("w-4 h-4"), exp.period]));
-                contentDiv.appendChild(infoDiv);
-
-                const highlightsList = createElement('ul', "space-y-2");
-                exp.highlights.forEach((highlight) => {
-                    highlightsList.appendChild(createElement('li', "flex gap-3 text-sm text-muted-foreground", [createElement('div', "w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"), highlight]));
-                });
-                contentDiv.appendChild(highlightsList);
-                experienceDiv.appendChild(contentDiv);
-                spaceY8.appendChild(experienceDiv);
-            });
-
-            relativeDiv.appendChild(spaceY8);
-            cardContent.appendChild(relativeDiv);
-            card.appendChild(cardContent);
-            return card;
-        }
-
-        function ProjectsShowcase() {
-            const projects = [
-                {
-                    title: "HR Employee Attrition Analysis",
-                    description: "Comprehensive analysis of employee attrition trends using Power BI and SQL to deliver actionable insights for reducing turnover.",
-                    technologies: ["Power BI", "SQL", "Data Analysis", "EDA"],
-                    highlights: [
-                        "Conducted Exploratory Data Analysis (EDA) to understand attrition trends",
-                        "Used SQL to extract and clean HR data from multiple sources",
-                        "Created interactive Power BI dashboard with key metrics and visualizations",
-                        "Delivered actionable insights to HR team to reduce employee turnover",
-                        "Identified key factors contributing to attrition across departments",
-                    ],
-                    link: "https://www.linkedin.com/feed/update/urn:li:activity:7338805251547779072/",
-                    icon: Icons.TrendingUp("w-6 h-6"),
-                    color: "bg-analytics-blue",
-                }
-            ];
-
-            const upcomingProjects = [
-                {
-                    title: "Sales Performance Dashboard",
-                    description: "Interactive dashboard analyzing sales metrics and KPIs using Tableau",
-                    status: "In Planning",
-                    technologies: ["Tableau", "SQL", "Sales Analytics"]
-                },
-                {
-                    title: "Customer Segmentation Analysis",
-                    description: "Machine learning project to segment customers based on behavior patterns",
-                    status: "Conceptual",
-                    technologies: ["Python", "R", "Machine Learning", "Clustering"]
-                }
-            ];
-
-            const mainDiv = createElement('div', "grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8");
-
-            const featuredProjectsCol = createElement('div', "lg:col-span-2");
-            const featuredCard = Card({ className: "bg-dashboard-surface border-dashboard-border" });
-            featuredCard.appendChild(CardHeader({ children: CardTitle({ className: "flex items-center gap-2", children: [Icons.BarChart3("w-5 h-5 text-primary"), "Featured Projects"] }) }));
-            const featuredCardContent = CardContent();
-
-            projects.forEach((project) => {
-                const projectDiv = createElement('div', "space-y-4");
-                const projectHeader = createElement('div', "flex items-start gap-4");
-                projectHeader.appendChild(createElement('div', `p-3 rounded-lg ${project.color}`, [project.icon]));
-                const projectDetails = createElement('div', "flex-1");
-
-                const titleButtonDiv = createElement('div', "flex items-center justify-between mb-2");
-                titleButtonDiv.appendChild(createElement('h3', "text-xl font-semibold", [project.title]));
-                titleButtonDiv.appendChild(Button({
-                    variant: "outline",
-                    size: "sm",
-                    className: "border-primary text-primary hover:bg-primary hover:text-primary-foreground",
-                    onClick: () => window.open(project.link, '_blank'),
-                    children: [Icons.ExternalLink("w-4 h-4 mr-2"), "View Project"]
-                }));
-                projectDetails.appendChild(titleButtonDiv);
-                projectDetails.appendChild(createElement('p', "text-muted-foreground mb-4", [project.description]));
-
-                const techBadges = createElement('div', "flex flex-wrap gap-2 mb-4");
-                project.technologies.forEach(tech => {
-                    techBadges.appendChild(Badge({ key: tech, variant: "secondary", className: "bg-secondary/50", children: tech }));
-                });
-                projectDetails.appendChild(techBadges);
-
-                const achievementsDiv = createElement('div', "space-y-2");
-                achievementsDiv.appendChild(createElement('h4', "font-medium text-sm", ["Key Achievements:"]));
-                const achievementsList = createElement('ul', "space-y-1");
-                project.highlights.forEach((highlight) => {
-                    achievementsList.appendChild(createElement('li', "flex gap-2 text-sm text-muted-foreground", [createElement('div', "w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"), highlight]));
-                });
-                achievementsDiv.appendChild(achievementsList);
-                projectDetails.appendChild(achievementsDiv);
-
-                projectHeader.appendChild(projectDetails);
-                projectDiv.appendChild(projectHeader);
-                featuredCardContent.appendChild(projectDiv);
-            });
-            featuredCard.appendChild(featuredCardContent);
-            featuredProjectsCol.appendChild(featuredCard);
-            mainDiv.appendChild(featuredProjectsCol);
-
-            const sideContentCol = createElement('div', "space-y-6");
-
-            // Education Card
-            const educationCard = Card({ className: "bg-dashboard-surface border-dashboard-border" });
-            educationCard.appendChild(CardHeader({ children: CardTitle({ className: "flex items-center gap-2", children: [Icons.Database("w-5 h-5 text-accent"), "Education"] }) }));
-            const educationContent = CardContent();
-            const educationDiv = createElement('div', "space-y-4");
-            const usmEducation = createElement('div');
-            usmEducation.appendChild(createElement('h3', "font-semibold", ["University of Science Malaysia (USM)"]));
-            usmEducation.appendChild(createElement('p', "text-sm text-muted-foreground", ["Bachelor of Social Science"]));
-            usmEducation.appendChild(createElement('p', "text-sm text-muted-foreground", ["Anthropology & Sociology"]));
-            usmEducation.appendChild(createElement('p', "text-sm text-muted-foreground", ["2018 – 2022"]));
-            educationDiv.appendChild(usmEducation);
-            educationContent.appendChild(educationDiv);
-            educationCard.appendChild(educationContent);
-            sideContentCol.appendChild(educationCard);
-
-            // Upcoming Projects Card
-            const upcomingProjectsCard = Card({ className: "bg-dashboard-surface border-dashboard-border" });
-            upcomingProjectsCard.appendChild(CardHeader({ children: CardTitle({ className: "flex items-center gap-2", children: [Icons.TrendingUp("w-5 h-5 text-analytics-orange"), "Upcoming Projects"] }) }));
-            const upcomingProjectsContent = CardContent();
-            const upcomingProjectsDiv = createElement('div', "space-y-4");
-            upcomingProjects.forEach((project) => {
-                const projectItemDiv = createElement('div', "space-y-2");
-                const projectItemHeader = createElement('div', "flex items-center justify-between");
-                projectItemHeader.appendChild(createElement('h4', "font-medium", [project.title]));
-                projectItemHeader.appendChild(Badge({ variant: "outline", className: "text-xs", children: project.status }));
-                projectItemDiv.appendChild(projectItemHeader);
-                projectItemDiv.appendChild(createElement('p', "text-sm text-muted-foreground", [project.description]));
-                const techBadges = createElement('div', "flex flex-wrap gap-1");
-                project.technologies.forEach(tech => {
-                    techBadges.appendChild(Badge({ key: tech, variant: "secondary", className: "text-xs bg-secondary/30", children: tech }));
-                });
-                projectItemDiv.appendChild(techBadges);
-                upcomingProjectsDiv.appendChild(projectItemDiv);
-            });
-            upcomingProjectsContent.appendChild(upcomingProjectsDiv);
-            upcomingProjectsCard.appendChild(upcomingProjectsContent);
-            sideContentCol.appendChild(upcomingProjectsCard);
-
-            mainDiv.appendChild(sideContentCol);
-            return mainDiv;
-        }
-
-        function SkillsSection() {
-            const technicalSkills = [
-                { name: "SQL", level: 90, category: "Database" },
-                { name: "Excel", level: 95, category: "Analytics" },
-                { name: "Power BI", level: 85, category: "Visualization" },
-                { name: "Tableau", level: 80, category: "Visualization" },
-                { name: "Python", level: 75, category: "Programming" },
-                { name: "R Programming", level: 70, category: "Programming" },
-                { name: "Salesforce", level: 85, category: "CRM" },
-                { name: "AS400P1", level: 75, category: "Systems" },
-            ];
-
-            const softSkills = [
-                "Problem-Solving & Critical Thinking",
-                "Communication & Collaboration",
-                "Attention to Detail",
-                "Time Management & Multitasking"
-            ];
-
-            const languages = [
-                { name: "Tamil", level: "Native" },
-                { name: "English", level: "Fluent" },
-                { name: "Malay", level: "Fluent" }
-            ];
-
-            const certifications = [
-                "Google Data Analytics Professional Certificate",
-                "Data Science Using Python and R",
-                "Advanced SQL (Parts 1 & 2)",
-                "Power BI Top Skills",
-                "Excel 2013: Pivot Tables & Advanced Formulas"
-            ];
-
-            const getCategoryIcon = (category) => {
-                switch (category) {
-                    case "Database": return Icons.Database("w-4 h-4");
-                    case "Analytics":
-                    case "Visualization": return Icons.BarChart3("w-4 h-4");
-                    case "Programming": return Icons.Code("w-4 h-4");
-                    default: return Icons.Code("w-4 h-4");
-                }
-            };
-
-            const mainDiv = createElement('div', "grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8");
-
-            // Technical Skills Card
-            const techSkillsCard = Card({ className: "bg-dashboard-surface border-dashboard-border" });
-            techSkillsCard.appendChild(CardHeader({ children: CardTitle({ className: "flex items-center gap-2", children: [Icons.Code("w-5 h-5 text-primary"), "Technical Skills"] }) }));
-            const techSkillsContent = CardContent({ className: "space-y-4" });
-            technicalSkills.forEach(skill => {
-                const skillDiv = createElement('div', "space-y-2");
-                const skillHeader = createElement('div', "flex items-center justify-between");
-                skillHeader.appendChild(createElement('div', "flex items-center gap-2", [getCategoryIcon(skill.category), createElement('span', "font-medium", [skill.name])]));
-                skillHeader.appendChild(createElement('span', "text-sm text-muted-foreground", [`${skill.level}%`]));
-                skillDiv.appendChild(skillHeader);
-                skillDiv.appendChild(Progress({ value: skill.level, className: "h-2" }));
-                techSkillsContent.appendChild(skillDiv);
-            });
-            techSkillsCard.appendChild(techSkillsContent);
-            mainDiv.appendChild(techSkillsCard);
-
-            const sideSkillsCol = createElement('div', "space-y-6");
-
-            // Soft Skills Card
-            const softSkillsCard = Card({ className: "bg-dashboard-surface border-dashboard-border" });
-            softSkillsCard.appendChild(CardHeader({ children: CardTitle({ className: "flex items-center gap-2", children: [Icons.MessageSquare("w-5 h-5 text-accent"), "Soft Skills"] }) }));
-            const softSkillsContent = CardContent();
-            const softSkillsBadges = createElement('div', "flex flex-wrap gap-2");
-            softSkills.forEach(skill => {
-                softSkillsBadges.appendChild(Badge({ key: skill, variant: "secondary", className: "bg-secondary/50", children: skill }));
-            });
-            softSkillsContent.appendChild(softSkillsBadges);
-            softSkillsCard.appendChild(softSkillsContent);
-            sideSkillsCol.appendChild(softSkillsCard);
-
-            // Languages Card
-            const languagesCard = Card({ className: "bg-dashboard-surface border-dashboard-border" });
-            languagesCard.appendChild(CardHeader({ children: CardTitle({ className: "flex items-center gap-2", children: [Icons.Globe("w-5 h-5 text-analytics-green"), "Languages"] }) }));
-            const languagesContent = CardContent();
-            const languagesDiv = createElement('div', "space-y-2");
-            languages.forEach(lang => {
-                const langItem = createElement('div', "flex justify-between items-center");
-                langItem.appendChild(createElement('span', "font-medium", [lang.name]));
-                langItem.appendChild(Badge({ variant: "outline", className: "border-analytics-green text-analytics-green", children: lang.level }));
-                languagesDiv.appendChild(langItem);
-            });
-            languagesContent.appendChild(languagesDiv);
-            languagesCard.appendChild(languagesContent);
-            sideSkillsCol.appendChild(languagesCard);
-
-            // Certifications Card
-            const certificationsCard = Card({ className: "bg-dashboard-surface border-dashboard-border" });
-            certificationsCard.appendChild(CardHeader({ children: CardTitle({ className: "flex items-center gap-2", children: [Icons.BarChart3("w-5 h-5 text-analytics-orange"), "Certifications"] }) }));
-            const certificationsContent = CardContent();
-            const certificationsDiv = createElement('div', "space-y-2");
-            certifications.forEach(cert => {
-                const certItem = createElement('div', "flex items-center gap-2");
-                certItem.appendChild(createElement('div', "w-2 h-2 bg-analytics-orange rounded-full"));
-                certItem.appendChild(createElement('span', "text-sm", [cert]));
-                certificationsDiv.appendChild(certItem);
-            });
-            certificationsContent.appendChild(certificationsDiv);
-            certificationsCard.appendChild(certificationsContent);
-            sideSkillsCol.appendChild(certificationsCard);
-
-            mainDiv.appendChild(sideSkillsCol);
-            return mainDiv;
-        }
-
-        function StatsDashboard() {
-            const stats = [
-                {
-                    title: "Years of Experience",
-                    value: "2+",
-                    description: "In data processing and analytics",
-                    icon: Icons.TrendingUp("w-6 h-6"),
-                    color: "text-analytics-blue",
-                    bgColor: "bg-analytics-blue/10"
-                },
-                {
-                    title: "Technical Skills",
-                    value: "8",
-                    description: "Core technologies mastered",
-                    icon: Icons.Database("w-6 h-6"),
-                    color: "text-analytics-green",
-                    bgColor: "bg-analytics-green/10"
-                },
-                {
-                    title: "Certifications",
-                    value: "5",
-                    description: "Professional certifications earned",
-                    icon: Icons.Award("w-6 h-6"),
-                    color: "text-analytics-orange",
-                    bgColor: "bg-analytics-orange/10"
-                },
-                {
-                    title: "Languages",
-                    value: "3",
-                    description: "Fluent in multiple languages",
-                    icon: Icons.Users("w-6 h-6"),
-                    color: "text-primary",
-                    bgColor: "bg-primary/10"
-                }
-            ];
-
-            const mainDiv = createElement('div', "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8");
-            stats.forEach((stat) => {
-                const card = Card({ className: "bg-dashboard-surface border-dashboard-border hover:border-primary/50 transition-colors" });
-                const cardContent = CardContent({ className: "p-6" });
-                
-                const headerDiv = createElement('div', "flex items-center justify-between mb-4");
-                const iconBgDiv = createElement('div', `p-3 rounded-lg ${stat.bgColor}`);
-                iconBgDiv.appendChild(createElement('div', stat.color, [stat.icon]));
-                headerDiv.appendChild(iconBgDiv);
-                cardContent.appendChild(headerDiv);
-
-                const textContentDiv = createElement('div', "space-y-2");
-                textContentDiv.appendChild(createElement('div', "text-3xl font-bold", [stat.value]));
-                textContentDiv.appendChild(createElement('div', "font-medium", [stat.title]));
-                textContentDiv.appendChild(createElement('div', "text-sm text-muted-foreground", [stat.description]));
-                cardContent.appendChild(textContentDiv);
-
-                card.appendChild(cardContent);
-                mainDiv.appendChild(card);
-            });
-            return mainDiv;
-        }
-
-
-        // Main App rendering logic
-        document.addEventListener('DOMContentLoaded', () => {
-            const root = document.getElementById('root');
-            if (root) {
-                root.appendChild(DashboardHeader());
-                root.appendChild(StatsDashboard());
-                root.appendChild(ExperienceTimeline());
-                root.appendChild(SkillsSection());
-                root.appendChild(ProjectsShowcase());
-            }
-        });
-    </script>
 </body>
 </html>
