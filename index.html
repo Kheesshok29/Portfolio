@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kheesshok Vartharajoo | Portfolio</title>
+  <title>Kheesshok Vartharajoo | Data Analyst Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
     * {
@@ -14,23 +14,32 @@
     }
 
     body {
-      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
       color: white;
+      background: #0f2027;
+      overflow-x: hidden;
+    }
+
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      top: 0;
+      left: 0;
     }
 
     header {
-      padding: 2rem;
+      padding: 4rem 2rem 2rem;
       text-align: center;
-      background: rgba(255, 255, 255, 0.05);
     }
 
     header h1 {
-      font-size: 2.5rem;
+      font-size: 3rem;
       font-weight: 700;
     }
 
     header p {
-      font-size: 1.2rem;
+      font-size: 1.4rem;
       font-weight: 300;
     }
 
@@ -43,13 +52,13 @@
 
     nav a {
       text-decoration: none;
-      color: #fff;
+      color: #00ffff;
       font-weight: 500;
       transition: color 0.3s;
     }
 
     nav a:hover {
-      color: #00ffff;
+      text-decoration: underline;
     }
 
     section {
@@ -58,7 +67,7 @@
       margin: auto;
     }
 
-    .projects {
+    .projects, .skills {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
@@ -103,6 +112,8 @@
   </style>
 </head>
 <body>
+  <div id="particles-js"></div>
+
   <header>
     <h1>Kheesshok Vartharajoo</h1>
     <p>Data Processing Specialist | Aspiring Data Analyst</p>
@@ -110,6 +121,7 @@
 
   <nav>
     <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
     <a href="#about">About</a>
     <a href="#contact">Contact</a>
   </nav>
@@ -119,27 +131,38 @@
     <div class="projects">
       <div class="card">
         <h3>HR Employee Attrition Analysis</h3>
-        <p>Conducted exploratory data analysis on HR data to uncover trends in employee turnover. SQL was used for data extraction and Power BI for visualization. <a href="https://www.linkedin.com/feed/update/urn:li:activity:7338805251547779072/" style="color:#00ffff;">View Project</a></p>
+        <p>Conducted EDA on HR datasets using SQL and visualized insights in Power BI. Focused on identifying key attrition drivers and recommending HR strategies.
+          <br><a href="https://www.linkedin.com/feed/update/urn:li:activity:7338805251547779072/" style="color:#00ffff;">View Project</a>
+        </p>
       </div>
       <div class="card">
         <h3>Salesforce CRM Data Cleanup</h3>
-        <p>Performed deduplication, validation, and cleansing of customer records across Salesforce CRM to ensure data consistency and reliability for business operations.</p>
+        <p>Processed and validated CRM records for data integrity. Used Excel and Salesforce tools to optimize and standardize datasets.</p>
       </div>
       <div class="card">
-        <h3>Fraud Case Analysis Support</h3>
-        <p>Collaborated with UOB's fraud investigation unit, compiling fraud case data and identifying recurring scam patterns. Documented and resolved cases under strict compliance standards.</p>
+        <h3>Fraud Case Support Analysis (UOB)</h3>
+        <p>Supported fraud investigations through case data tracking, reporting scam patterns, and ensuring AML/KYC compliance. Delivered clear summaries to internal teams.</p>
       </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Technical Skills</h2>
+    <div class="skills">
+      <div class="card"><h3>Data Tools</h3><p>Excel, SQL, Tableau, Power BI</p></div>
+      <div class="card"><h3>Programming</h3><p>Python, R</p></div>
+      <div class="card"><h3>CRM & Platforms</h3><p>Salesforce, AS400P1, Cardpac</p></div>
+      <div class="card"><h3>Soft Skills</h3><p>Problem Solving, Communication, Attention to Detail</p></div>
     </div>
   </section>
 
   <section id="about">
     <h2>About Me</h2>
-    <p>I’m an analytical and detail-oriented data professional based in Kuala Lumpur with experience in data processing, customer service, and analytics. Skilled in SQL, Excel, Tableau, Power BI, and CRM platforms like Salesforce. My background in social science enhances my ability to interpret data with a human-centered lens. I enjoy translating raw datasets into actionable insights that support business decisions.</p>
+    <p>I’m a passionate data specialist from Kuala Lumpur with a social science background and strong analytical acumen. My work spans data cleaning, dashboarding, fraud case analysis, and CRM management. I enjoy solving business problems through clean data, logic, and visual storytelling.</p>
   </section>
 
   <section id="contact" class="contact">
     <h2>Contact</h2>
-    <p>Connect with me on:</p>
     <p>
       <a href="https://github.com/yourusername" target="_blank">GitHub</a>
       <a href="https://www.linkedin.com/in/kheesshok-vartharajoo-4233a4246/" target="_blank">LinkedIn</a>
@@ -152,5 +175,11 @@
   <footer>
     <p>&copy; 2025 Kheesshok Vartharajoo. All rights reserved.</p>
   </footer>
+
+  <!-- Particles.js background -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS.load('particles-js', 'https://cdn.jsdelivr.net/gh/VincentGarreau/particles.js/particles.json');
+  </script>
 </body>
 </html>
