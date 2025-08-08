@@ -1,19 +1,19 @@
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kheesshok Vartharajoo - Data Developer</title>
+    <title>KHEESSHOK S/O VARTHARAJOO - Data Developer Portfolio</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap');
         
         :root {
             --bg-color: #0d1117;
-            --main-color: #56d46a;
-            --accent-color: #438fcf;
+            --main-color: #00ff80; /* Brighter neon green */
+            --accent-color: #00aaff; /* Neon blue */
             --text-color: #c9d1d9;
             --secondary-text-color: #8b949e;
-            --card-bg: #161b22;
+            --card-bg: rgba(22, 27, 34, 0.75); /* Semi-transparent background */
             --border-color: #30363d;
         }
 
@@ -31,31 +31,14 @@
             background-color: var(--bg-color);
         }
 
-        .video-background {
+        .canvas-background {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             z-index: -1;
-            overflow: hidden;
-        }
-
-        .video-background video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.2; /* Adjust opacity for a subtle effect */
-        }
-
-        .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7); /* Dark overlay */
-            z-index: -1;
+            opacity: 0.3; /* Subtle matrix effect */
         }
 
         .container {
@@ -69,6 +52,7 @@
         header {
             text-align: center;
             padding: 4rem 0;
+            animation: fadeIn 1s ease-in-out;
         }
 
         .typed-text-wrapper {
@@ -98,11 +82,13 @@
         header h2 {
             font-size: 1.5rem;
             color: var(--secondary-text-color);
+            margin-top: 0.5rem;
         }
 
         section {
             padding: 4rem 0;
             border-bottom: 1px solid var(--border-color);
+            animation: fadeIn 1s ease-in-out;
         }
 
         h3 {
@@ -111,7 +97,6 @@
             text-align: center;
             margin-bottom: 2rem;
             position: relative;
-            animation: fadeIn 1s ease-in-out;
         }
 
         h3::after {
@@ -131,27 +116,28 @@
 
         .card {
             background: var(--card-bg);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
             padding: 2rem;
             border-radius: 8px;
             border: 1px solid var(--border-color);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
         }
 
         .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 10px 30px rgba(0, 255, 128, 0.1), 0 0 15px rgba(0, 255, 128, 0.2);
+            border-color: var(--main-color);
         }
 
         .card h4 {
             color: var(--main-color);
             margin-bottom: 1rem;
+            transition: color 0.3s ease;
         }
 
-        .project-image {
-            width: 100%;
-            height: auto;
-            border-radius: 4px;
-            margin-bottom: 1rem;
+        .card:hover h4 {
+            color: var(--accent-color);
         }
 
         ul {
@@ -185,6 +171,7 @@
             padding: 2rem;
             border-top: 1px solid var(--border-color);
             color: var(--secondary-text-color);
+            margin-top: 2rem;
         }
 
         @keyframes fadeIn {
@@ -200,14 +187,7 @@
     </style>
 </head>
 <body>
-
-    <div class="video-background">
-        <video autoplay muted loop playsinline>
-            <source src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2FwYTZqM29kMXNlbmU1enA3Z2Y5ZG14MnV5c3pxNTJjdjBhZ2ZlbSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7TKEQhP2I3e0T1aM/giphy.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <div class="overlay"></div>
-    </div>
+    <canvas id="matrix-canvas" class="canvas-background"></canvas>
 
     <main class="container">
         <header>
@@ -219,32 +199,46 @@
             <h2>Data Processing Specialist | Aspiring Data Analyst</h2>
         </header>
 
-        <section id="profile">
+        <section id="about">
             <h3>Profile</h3>
             <div class="card">
-                [cite_start]<p>I am an analytical and detail-oriented data professional with experience in data processing, customer service, and analytics[cite: 5]. [cite_start]I am proficient in SQL, Excel, Tableau, Power BI, and CRM systems, and I'm passionate about transforming raw data into actionable insights[cite: 6]. [cite_start]I'm currently seeking a data-focused role to apply my analytical skills and drive business decisions[cite: 7].</p>
+                <p>Analytical and detail-oriented data professional with experience in data processing, customer service, and analytics. I am proficient in SQL, Excel, Tableau, Power BI, and CRM systems. Passionate about transforming raw data into actionable insights. Seeking a data-focused role to apply analytical skills and drive business decisions.</p>
             </div>
         </section>
-
+        
         <section id="experience">
             <h3>Work Experience</h3>
-            <div class="card">
-                <h4>Data Processing Specialist, The Access Group (2024 - Present)</h4>
-                <ul>
-                    [cite_start]<li>Accurately processed and maintained high volumes of operational and customer data using Excel, Salesforce, and internal relational databases (RDB)[cite: 11].</li>
-                    [cite_start]<li>Performed data cleansing, validation, and deduplication to ensure consistency and accuracy across systems[cite: 12].</li>
-                    [cite_start]<li>Utilized advanced Excel functions (VLOOKUP, XLOOKUP, pivot tables, IF statements) for data transformation, tracking, and reporting[cite: 13].</li>
-                    [cite_start]<li>Queried relational databases using SQL to extract, analyze, and verify large datasets for reporting and quality assurance[cite: 15].</li>
-                    [cite_start]<li>Created dashboards and visual reports using Power BI to provide insights into data trends, error rates, and processing efficiency[cite: 17].</li>
-                    [cite_start]<li>Contributed to process improvement initiatives by suggesting automation opportunities and standardizing reporting templates[cite: 20].</li>
-                </ul>
-            </div>
-            <div class="card">
-                <h4>Previous Roles</h4>
-                <ul>
-                    [cite_start]<li>**Customer Service Senior Officer, UOB (Remote):** Delivered frontline support and handled fraud-related inquiries, ensuring compliance with AML and KYC policies[cite: 21, 24, 29].</li>
-                    [cite_start]<li>**On-Site Data & Documentation Personnel, DHL Express:** Managed and updated shipment records, delivery manifests, and customs documentation, ensuring data integrity and compliance[cite: 34, 35, 38].</li>
-                </ul>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Data Processing Specialist, The Access Group (2024 - Present)</h4>
+                    <ul>
+                        <li>Accurately processed and maintained high volumes of operational and customer data using Excel, Salesforce, and internal relational databases (RDB).</li>
+                        <li>Performed data cleansing, validation, and deduplication to ensure consistency and accuracy across systems.</li>
+                        <li>Utilized advanced Excel functions (VLOOKUP, XLOOKUP, pivot tables, IF statements, conditional formatting) for data transformation, tracking, and reporting.</li>
+                        <li>Updated and monitored records in Salesforce CRM, ensuring timely data input, case tracking, and client information accuracy.</li>
+                        <li>Queried relational databases using SQL to extract, analyze, and verify large datasets for reporting and quality assurance.</li>
+                        <li>Supported cross-functional teams with data requests by generating clean, reliable datasets tailored to their business needs.</li>
+                        <li>Created dashboards and visual reports using Power BI to provide insights into data trends, error rates, and processing efficiency.</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>Customer Service Senior Officer, United Overseas Bank (UOB) (Remote)</h4>
+                    <ul>
+                        <li>Delivered frontline support for high-volume inbound customer inquiries via phone, email, and digital platforms, ensuring prompt and accurate resolution across banking services.</li>
+                        <li>Identified, reported, and resolved suspected fraudulent transactions and scam-related activity, including phishing attempts, unauthorized transfers, and social engineering scams.</li>
+                        <li>Ensured compliance with AML (Anti-Money Laundering), KYC (Know Your Customer), and internal fraud prevention policies.</li>
+                        <li>Consistently met or exceeded performance KPIs including average handling time (AHT), customer satisfaction (CSAT), and first call resolution (FCR).</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>On-Site Data & Documentation Personnel, DHL Express (2022-2023)</h4>
+                    <ul>
+                        <li>Managed and updated shipment records, delivery manifests, and customs documentation to ensure smooth and compliant cross-border logistics operations.</li>
+                        <li>Accurately processed daily shipment and clearance data using DHL's internal systems and tools, adhering to service-level agreements (SLAs) and compliance standards.</li>
+                        <li>Monitored shipment delays or documentation issues and flagged them to the appropriate departments for quick resolution.</li>
+                        <li>Maintained organized filing systems (both digital and physical) to ensure traceability and audit readiness.</li>
+                    </ul>
+                </div>
             </div>
         </section>
 
@@ -254,42 +248,37 @@
                 <div class="card">
                     <h4>Data & BI Tools</h4>
                     <ul>
-                        [cite_start]<li>SQL [cite: 55]</li>
-                        [cite_start]<li>Excel [cite: 56]</li>
-                        [cite_start]<li>Power BI [cite: 58]</li>
-                        [cite_start]<li>Tableau [cite: 57]</li>
+                        <li>SQL</li>
+                        <li>Excel</li>
+                        <li>Tableau</li>
+                        <li>Power BI</li>
                     </ul>
                 </div>
                 <div class="card">
-                    <h4>Programming</h4>
+                    <h4>Programming & Systems</h4>
                     <ul>
-                        [cite_start]<li>Python [cite: 64]</li>
-                        [cite_start]<li>R Programming [cite: 59]</li>
+                        <li>Python</li>
+                        <li>R Programming</li>
+                        <li>CRM</li>
+                        <li>Salesforce</li>
                     </ul>
                 </div>
                 <div class="card">
-                    <h4>CRM & Other</h4>
+                    <h4>Soft Skills</h4>
                     <ul>
-                        [cite_start]<li>Salesforce [cite: 61]</li>
-                        [cite_start]<li>CRM [cite: 60]</li>
-                        [cite_start]<li>AS400P1 [cite: 62]</li>
-                        [cite_start]<li>Cardpac [cite: 63]</li>
+                        <li>Problem-Solving & Critical Thinking</li>
+                        <li>Communication & Collaboration</li>
+                        <li>Attention to Detail</li>
                     </ul>
                 </div>
-            </div>
-        </section>
-
-        <section id="projects">
-            <h3>Projects</h3>
-            <div class="card">
-                <h4>HR Employee Attrition Analysis (Power BI & SQL)</h4>
-                <ul>
-                    [cite_start]<li>Conducted Exploratory Data Analysis (EDA) to understand attrition trends[cite: 76].</li>
-                    [cite_start]<li>Used SQL to extract and clean HR data for analysis[cite: 77].</li>
-                    [cite_start]<li>Visualized key insights in a Power BI dashboard to highlight factors contributing to turnover[cite: 78].</li>
-                    [cite_start]<li>Provided actionable insights to help reduce employee attrition[cite: 79].</li>
-                </ul>
-                <a href="https://www.linkedin.com/feed/update/urn:li:activity:7338805251547779072/" target="_blank">View Project on LinkedIn</a>
+                <div class="card">
+                    <h4>Languages</h4>
+                    <ul>
+                        <li>English (Fluent)</li>
+                        <li>Malay (Fluent)</li>
+                        <li>Tamil (Native)</li>
+                    </ul>
+                </div>
             </div>
         </section>
         
@@ -299,17 +288,33 @@
                 <div class="card">
                     <h4>Education</h4>
                     <p><strong>University of Science Malaysia (USM)</strong></p>
-                    <p>Bachelor of Social Science (Anthropology & Sociology)</p>
-                    [cite_start]<p>2018-2022 [cite: 46, 47]</p>
+                    <p>Bachelor of Social Science (Anthropology & Sociology) (2018-2022)</p>
                 </div>
                 <div class="card">
                     <h4>Certifications</h4>
                     <ul>
-                        [cite_start]<li>Google Data Analytics Professional Certificate [cite: 49]</li>
-                        [cite_start]<li>Data Science Using Python and R [cite: 50]</li>
-                        [cite_start]<li>Advanced SQL (Parts 1 & 2) [cite: 51]</li>
-                        [cite_start]<li>Power BI Top Skills [cite: 52]</li>
+                        <li>Google Data Analytics Professional Certificate</li>
+                        <li>Data Science Using Python and R</li>
+                        <li>Advanced SQL (Parts 1 & 2)</li>
+                        <li>Power BI Top Skills</li>
+                        <li>Excel 2013: Pivot Tables & Advanced Formulas</li>
                     </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h3>Projects</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>HR Employee Attrition Analysis (Power BI & SQL)</h4>
+                    <ul>
+                        <li>Conducted EDA to understand attrition trends.</li>
+                        <li>Used SQL to extract and clean HR data.</li>
+                        <li>Visualized insights in a Power BI dashboard.</li>
+                        <li>Delivered actionable insights to reduce employee turnover.</li>
+                    </ul>
+                    <a href="https://www.linkedin.com/feed/update/urn:li:activity:7338805251547779072/" target="_blank" style="color: var(--main-color); text-decoration: none; margin-top: 1rem; display: inline-block;">View Project on LinkedIn</a>
                 </div>
             </div>
         </section>
@@ -318,9 +323,11 @@
             <h3>Contact</h3>
             <div class="card">
                 <p>Feel free to reach out to me for collaborations or just to say hello!</p>
+                <p>Email: vkheesshok@gmail.com</p>
+                <p>Phone: +601114347229</p>
+                <p>Location: Kuala Lumpur</p>
                 <div class="social-links">
                     <a href="https://www.linkedin.com/in/kheesshok-vartharajoo-4233a4246/" target="_blank">LinkedIn</a>
-                    <a href="mailto:vkheesshok@gmail.com">Email</a>
                 </div>
             </div>
         </section>
@@ -331,8 +338,55 @@
     </footer>
 
     <script>
+        // === Background Animation (Matrix Rain) ===
+        const canvas = document.getElementById('matrix-canvas');
+        const ctx = canvas.getContext('2d');
+
+        let width, height;
+        let columns;
+        let drops = [];
+        const fontSize = 16;
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+
+        function initializeMatrix() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+
+            columns = Math.floor(width / fontSize);
+            drops = [];
+            for (let i = 0; i < columns; i++) {
+                drops[i] = 1;
+            }
+        }
+        window.addEventListener('resize', initializeMatrix);
+        initializeMatrix();
+
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(13, 17, 23, 0.05)';
+            ctx.fillRect(0, 0, width, height);
+
+            ctx.fillStyle = '#00ff80'; // Neon green color
+            ctx.font = `${fontSize}px Fira Code`;
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = characters.charAt(Math.floor(Math.random() * characters.length));
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                if (drops[i] * fontSize > height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+
+        function animateMatrix() {
+            drawMatrix();
+            requestAnimationFrame(animateMatrix);
+        }
+
+        // === Typing Animation ===
         const typedTextSpan = document.getElementById("typed-text");
-        const phrases = ["Data Developer", "Data Processing Specialist", "SQL Professional", "Power BI Analyst"];
+        const phrases = ["Data Processing Specialist", "Aspiring Data Analyst", "Analytical Professional", "SQL Enthusiast"];
         let phraseIndex = 0;
         let charIndex = 0;
         const typingSpeed = 100; // milliseconds
@@ -365,6 +419,7 @@
 
         document.addEventListener("DOMContentLoaded", function() {
             if (phrases.length) setTimeout(type, typingSpeed + 500);
+            animateMatrix(); // Start matrix animation on page load
         });
     </script>
 </body>
