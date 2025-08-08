@@ -1,789 +1,328 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kheesshok Vartharajoo - Data Developer Portfolio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Data Developer Portfolio</title>
     <style>
-        /* Base Body Styles */
-        body {
-            font-family: 'Inter', sans-serif;
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap');
+        
+        :root {
+            --bg-color: #0d1117;
+            --main-color: #56d46a;
+            --accent-color: #438fcf;
+            --text-color: #c9d1d9;
+            --secondary-text-color: #8b949e;
+            --card-bg: #161b22;
+            --border-color: #30363d;
+        }
+
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            background-color: #080a0e; /* Deep dark background */
-            color: #e2e8f0; /* Light text for dark theme */
-            overflow-x: hidden; /* Prevent horizontal scroll due to canvas */
         }
 
-        /* Section Title Styling */
-        .section-title {
-            @apply text-5xl font-extrabold mb-10 pb-4 border-b-4 border-blue-700 text-blue-400 flex items-center relative; /* Larger, bolder, more prominent blue accent */
-            font-family: 'Orbitron', sans-serif; /* Techy font for titles */
-            text-shadow: 0 0 15px rgba(59, 130, 246, 0.4); /* Subtle blue glow */
-        }
-        .section-title svg, .section-title i {
-            @apply mr-5 text-blue-500 text-4xl; /* Larger, brighter icon */
-        }
-        .section-title::after { /* Underline effect with gradient */
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: -2px; /* Adjust to sit below the border-b */
-            width: 100%;
-            height: 4px; /* Thickness of the gradient line */
-            background: linear-gradient(90deg, #3b82f6, #06b6d4, transparent); /* Blue to cyan gradient */
-            border-radius: 2px;
+        body {
+            font-family: 'Fira Code', monospace;
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-color: var(--bg-color);
         }
 
-        /* Card Styling */
-        .card {
-            @apply bg-gray-900 p-10 rounded-2xl shadow-2xl transition-all duration-500 hover:scale-[1.01] hover:shadow-blue-900/70 border-2 border-gray-800 relative overflow-hidden; /* Darker card background, enhanced hover, thicker border, overflow hidden for subtle effects */
-        }
-        .card::before { /* Subtle background grid/pattern for cards */
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.03) 1px, transparent 0);
-            background-size: 20px 20px;
-            opacity: 0.1;
-            z-index: 0;
-        }
-        .card > * { /* Ensure content is above the pseudo-element */
-            position: relative;
-            z-index: 1;
-        }
-        .card p, .card ul li {
-            @apply text-gray-200 leading-relaxed; /* Slightly lighter text, better line height */
-        }
-        .card h3 {
-            @apply text-blue-300 font-bold text-2xl; /* Prominent heading inside cards */
-            font-family: 'Roboto Mono', monospace; /* Monospace font for code-like feel */
-        }
-        .card p.text-gray-500 { /* For dates and small text */
-            @apply text-gray-400;
-        }
-
-        /* Skill Badge Styling */
-        .skill-badge {
-            @apply inline-block bg-blue-800 text-blue-100 text-sm font-medium px-4 py-2 rounded-full mr-3 mb-3 transition-all duration-300 hover:bg-blue-700 hover:text-white hover:scale-105 border border-blue-600 shadow-md; /* More padding, distinct shadow */
-            font-family: 'Roboto Mono', monospace;
-        }
-
-        /* Project Link Styling */
-        .project-link {
-            @apply text-blue-400 hover:text-blue-200 font-semibold flex items-center mt-3 transition-colors duration-200 text-lg; /* Larger, bolder links */
-        }
-        .project-link svg, .project-link i {
-            @apply ml-2 text-xl;
-        }
-
-        /* Canvas for live background */
-        #particle-canvas {
+        .video-background {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -1; /* Send to background */
-            opacity: 0.12; /* Slightly more visible effect */
-        }
-
-        /* Sticky Navbar */
-        .navbar {
-            @apply sticky top-0 z-50 bg-gray-950 bg-opacity-95 backdrop-blur-lg shadow-xl border-b border-gray-800; /* Darker, more prominent, blurrier navbar */
-        }
-        .navbar a {
-            @apply text-gray-300 hover:text-blue-400 px-5 py-3 rounded-lg text-base font-medium transition-all duration-300 hover:scale-105 hover:bg-gray-800/50; /* More padding, distinct hover background */
-        }
-
-        /* Scroll to Top Button */
-        #scroll-to-top {
-            @apply fixed bottom-10 right-10 bg-blue-600 hover:bg-blue-700 text-white p-5 rounded-full shadow-lg transition-all duration-300 opacity-0 invisible;
-            z-index: 1000;
-        }
-        #scroll-to-top.show {
-            @apply opacity-100 visible animate-float; /* Apply float animation when visible */
-        }
-
-        /* Keyframe for simple fade-in effect on sections */
-        .fade-in-section {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 1s ease-out, transform 1s ease-out; /* Slower, more dramatic fade */
-        }
-        .fade-in-section.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Typewriter effect for header tagline */
-        .typewriter-text {
+            z-index: -1;
             overflow: hidden;
-            white-space: nowrap;
+        }
+
+        .video-background video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.2; /* Adjust opacity for a subtle effect */
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7); /* Dark overlay */
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1200px;
             margin: 0 auto;
-            letter-spacing: .08em; /* Increased letter-spacing */
-            font-size: 1.5rem; /* text-2xl */
-            max-width: fit-content;
-            animation: typing 4.5s steps(50, end) forwards, blink-caret .75s step-end infinite; /* Adjusted steps for longer text */
-            border-right: .2em solid #38bdf8; /* Thicker, blue-400 blinking cursor */
-            font-family: 'Roboto Mono', monospace; /* Monospace for tagline */
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
         }
 
-        /* Typing animation */
-        @keyframes typing {
-            from { width: 0 }
-            to { width: 100% }
+        header {
+            text-align: center;
+            padding: 4rem 0;
         }
 
-        /* Blinking cursor animation */
-        @keyframes blink-caret {
-            from, to { border-color: transparent }
-            50% { border-color: #38bdf8 } /* Blue-400 */
+        .typed-text-wrapper {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--main-color);
+            margin-bottom: 0.5rem;
+            min-height: 50px;
         }
 
-        /* New blinking text animation */
-        @keyframes text-blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; } /* Adjust opacity for desired blink intensity */
+        .typed-cursor {
+            color: var(--main-color);
+            animation: blink 0.7s infinite;
         }
 
-        .blinking-text {
-            animation: text-blink 1.8s infinite; /* Apply blinking animation */
+        @keyframes blink {
+            from { opacity: 1; }
+            to { opacity: 0; }
         }
 
-        /* New animation for header buttons (subtle pulse) */
-        @keyframes button-pulse {
-            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7); }
-            70% { transform: scale(1.04); box-shadow: 0 0 0 20px rgba(59, 130, 246, 0); } /* More pronounced pulse */
-            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
-        }
-        .animate-button-pulse {
-            animation: button-pulse 2.8s infinite; /* Slower, more deliberate pulse */
+        header h1 {
+            font-size: 3rem;
+            color: var(--main-color);
+            text-transform: uppercase;
         }
 
-        /* New animation for floating scroll-to-top button */
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); } /* More vertical movement */
-            100% { transform: translateY(0px); }
+        header h2 {
+            font-size: 1.5rem;
+            color: var(--secondary-text-color);
         }
 
-        /* Custom styling for skill badges during filtering for smoother transition */
-        .skill-badge.hidden-skill {
-            display: none;
+        section {
+            padding: 4rem 0;
+            border-bottom: 1px solid var(--border-color);
         }
-        .skill-badge.fade-out {
-            opacity: 0;
-            transform: scale(0.7);
-            transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+
+        h3 {
+            font-size: 2rem;
+            color: var(--accent-color);
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+            animation: fadeIn 1s ease-in-out;
         }
-        .skill-badge.fade-in {
-            opacity: 1;
-            transform: scale(1);
-            transition: opacity 0.4s ease-in, transform 0.4s ease-in;
+
+        h3::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: var(--accent-color);
+            margin: 0.5rem auto 0;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .card h4 {
+            color: var(--main-color);
+            margin-bottom: 1rem;
+        }
+
+        .project-image {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            color: var(--text-color);
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--main-color);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid var(--border-color);
+            color: var(--secondary-text-color);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
-<body class="flex flex-col min-h-screen">
+<body>
 
-    <canvas id="particle-canvas"></canvas>
+    <div class="video-background">
+        <video autoplay muted loop playsinline>
+            <source src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2FwYTZqM29kMXNlbmU1enA3Z2Y5ZG14MnV5c3pxNTJjdjBhZ2ZlbSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7TKEQhP2I3e0T1aM/giphy.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="overlay"></div>
+    </div>
 
-    <nav class="navbar">
-        <div class="container mx-auto px-4 py-5 flex justify-center space-x-8">
-            <a href="#profile">Profile</a>
-            <a href="#skills">Skills</a>
-            <a href="#experience">Experience</a>
-            <a href="#projects">Projects</a>
-            <a href="#education">Education</a>
-            <a href="#certifications">Certifications</a>
-            <a href="#contact">Contact</a>
-        </div>
-    </nav>
-
-    <header class="bg-gradient-to-br from-gray-950 to-gray-800 text-white py-24 shadow-2xl relative z-10 overflow-hidden">
-        <div class="container mx-auto px-4 text-center">
-            <h1 class="text-7xl font-extrabold mb-6 leading-tight animate-pulse text-blue-300" style="font-family: 'Orbitron', sans-serif; text-shadow: 0 0 25px rgba(59, 130, 246, 0.6);">KHEESSHOK S/O VARTHARAJOO</h1>
-            <p class="text-4xl font-light text-gray-300 mb-6">Data Processing Specialist | Aspiring Data Developer</p>
-            <p id="tagline-typewriter" class="mt-8 text-2xl text-gray-400 max-w-4xl mx-auto typewriter-text blinking-text">
-                Engineering robust data pipelines to unlock actionable intelligence and drive innovation.
-            </p>
-            <div class="mt-12 space-x-8">
-                <a href="#projects" class="inline-block bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white font-bold py-4 px-10 rounded-full transition-all duration-300 shadow-xl animate-button-pulse text-xl transform hover:scale-105">
-                    View My Projects <i class="fas fa-arrow-right ml-4"></i>
-                </a>
-                <a href="#contact" class="inline-block border-2 border-white hover:border-blue-400 text-white font-bold py-4 px-10 rounded-full transition-all duration-300 animate-button-pulse text-xl transform hover:scale-105">
-                    Get in Touch <i class="fas fa-envelope ml-4"></i>
-                </a>
+    <main class="container">
+        <header>
+            <div class="typed-text-wrapper">
+                <span id="typed-text"></span>
+                <span class="typed-cursor">|</span>
             </div>
-        </div>
-    </header>
-    <main class="flex-1 container mx-auto px-8 py-16 relative z-10">
+            <h1>Kheesshok29</h1>
+            <h2>Data Developer & Machine Learning Enthusiast</h2>
+        </header>
 
-        <section id="profile" class="mb-20 fade-in-section">
-            <h2 class="section-title">
-                <i class="fas fa-user-circle"></i>
-                Profile
-            </h2>
+        <section id="about">
+            <h3>About Me</h3>
             <div class="card">
-                <p class="leading-relaxed text-xl">
-                    An analytical and detail-oriented data professional with robust experience in data processing, cleansing, and validation.
-                    Leveraging proficiency in **SQL, Python, R, and Power BI**, I am passionate about developing robust data solutions,
-                    automating processes, and transforming complex datasets into actionable insights.
-                    I am actively seeking a challenging **Data Developer** role where I can apply my skills to build scalable data pipelines and drive business innovation.
-                </p>
+                <p>Hello! I'm a passionate data developer with a knack for transforming complex data into actionable insights. My expertise lies in building robust data pipelines, developing machine learning models, and visualizing data to tell compelling stories. I'm always eager to learn and explore new technologies in the ever-evolving world of data.</p>
             </div>
         </section>
 
-        <section id="skills" class="mb-20 fade-in-section">
-            <h2 class="section-title">
-                <i class="fas fa-code"></i>
-                Technical Skills
-            </h2>
+        <section id="skills">
+            <h3>Skills</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Programming Languages</h4>
+                    <ul>
+                        <li>Python (Pandas, NumPy, Scikit-learn)</li>
+                        <li>SQL</li>
+                        <li>R</li>
+                        <li>JavaScript</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>Databases & Tools</h4>
+                    <ul>
+                        <li>PostgreSQL, MySQL</li>
+                        <li>Snowflake, BigQuery</li>
+                        <li>Docker, Kubernetes</li>
+                        <li>Git, GitHub</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>Data & ML Frameworks</h4>
+                    <ul>
+                        <li>Apache Spark</li>
+                        <li>TensorFlow, Keras, PyTorch</li>
+                        <li>Scikit-learn</li>
+                        <li>Airflow</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h3>Projects</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Project 1: Data Pipeline for E-commerce</h4>
+                    <p>Designed and implemented a scalable data pipeline to process and analyze customer purchase data, resulting in a 15% increase in targeted marketing campaign effectiveness.</p>
+                </div>
+                <div class="card">
+                    <h4>Project 2: Sentiment Analysis Model</h4>
+                    <p>Developed a machine learning model using NLP techniques to analyze social media sentiment, achieving a 92% accuracy rate in classifying positive, negative, and neutral feedback.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h3>Contact</h3>
             <div class="card">
-                <div class="flex items-center mb-8">
-                    <label for="skill-filter" class="block text-lg font-medium text-gray-200 mr-5">Filter by Category:</label>
-                    <select id="skill-filter" class="mt-1 block w-auto bg-gray-700 text-gray-200 border border-gray-600 rounded-lg shadow-sm p-3 focus:ring-blue-500 focus:border-blue-500 cursor-pointer text-base">
-                        <option value="all">All Skills</option>
-                        <option value="programming">Programming Languages</option>
-                        <option value="databases">Databases & Querying</option>
-                        <option value="bi-tools">BI & Visualization Tools</option>
-                        <option value="data-engineering">Data Engineering & Processing</option>
-                        <option value="platforms">Platforms & Systems</option>
-                        <option value="other">Other</option>
-                    </select>
-                </div>
-                <div id="skill-badges-container" class="flex flex-wrap gap-4">
-                    <span class="skill-badge" data-category="databases">SQL (Advanced)</span>
-                    <span class="skill-badge" data-category="programming">Python</span>
-                    <span class="skill-badge" data-category="programming">R Programming</span>
-                    <span class="skill-badge" data-category="other">Excel (Advanced)</span>
-                    <span class="skill-badge" data-category="bi-tools">Power BI</span>
-                    <span class="skill-badge" data-category="bi-tools">Tableau</span>
-                    <span class="skill-badge" data-category="platforms">CRM Systems</span>
-                    <span class="skill-badge" data-category="platforms">Salesforce</span>
-                    <span class="skill-badge" data-category="databases">Relational Databases (RDB)</span>
-                    <span class="skill-badge" data-category="data-engineering">Data Cleansing & Validation</span>
-                    <span class="skill-badge" data-category="data-engineering">Data Transformation</span>
-                    <span class="skill-badge" data-category="data-engineering">Data Reporting & Visualization</span>
-                    <span class="skill-badge" data-category="data-engineering">Automation Opportunities</span>
-                    <span class="skill-badge" data-category="data-engineering">ETL Processes</span>
-                    <span class="skill-badge" data-category="data-engineering">Data Modeling</span>
-                    <span class="skill-badge" data-category="platforms">AS400P1</span>
-                    <span class="skill-badge" data-category="platforms">Cardpac</span>
-                </div>
+                <p>Feel free to reach out to me for collaborations or just to say hello!</p>
+                <div class="social-links">
+                    <a href="https://github.com/kheesshok29" target="_blank">GitHub</a>
+                    <a href="#" target="_blank">LinkedIn</a> <a href="mailto:your.email@example.com">Email</a> </div>
             </div>
         </section>
-
-        <section id="experience" class="mb-20 fade-in-section">
-            <h2 class="section-title">
-                <i class="fas fa-briefcase"></i>
-                Work Experience
-            </h2>
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
-                <div class="card">
-                    <h3 class="text-3xl font-semibold mb-3 text-blue-300">Data Processing Specialist</h3>
-                    <p class="text-xl text-gray-400">The Access Group, Kuala Lumpur</p>
-                    <p class="text-base text-gray-400 mb-5">2024 - Present</p>
-                    <ul class="list-disc list-inside space-y-3 text-lg">
-                        <li>Accurately processed and maintained high volumes of operational and customer data using **Excel, Salesforce**, and internal **relational databases (RDB)**.</li>
-                        <li>Performed comprehensive data cleansing, validation, and deduplication to ensure data consistency and accuracy across systems.</li>
-                        <li>Utilized advanced **Excel functions (VLOOKUP, XLOOKUP, pivot tables, IF statements, conditional formatting)** for complex data transformation, tracking, and reporting.</li>
-                        <li>Updated and monitored records in **Salesforce CRM**, ensuring timely data input, case tracking, and client information accuracy.</li>
-                        <li>Queried relational databases using **SQL** to extract, analyze, and verify large datasets for reporting and quality assurance.</li>
-                        <li>Supported cross-functional teams with data requests by generating clean, reliable datasets tailored to their business needs.</li>
-                        <li>Developed dashboards and visual reports using **Power BI** to provide insights into data trends, error rates, and processing efficiency.</li>
-                        <li>Identified and resolved discrepancies in datasets by cross-checking across multiple sources and applying logical data checks.</li>
-                        <li>Maintained strict data security and compliance standards in handling sensitive customer and operational information.</li>
-                        <li>Contributed to process improvement initiatives by suggesting automation opportunities and standardizing reporting templates.</li>
-                    </ul>
-                </div>
-
-                <div class="card">
-                    <h3 class="text-3xl font-semibold mb-3 text-blue-300">Customer Service Representative (Remote)</h3>
-                    <p class="text-xl text-gray-400">United Overseas Bank (UOB), Singapore</p>
-                    <p class="text-base text-gray-400 mb-5">2024 - 2025</p>
-                    <ul class="list-disc list-inside space-y-3 text-lg">
-                        <li>Managed high-volume customer inquiries across various banking services, often involving data retrieval and verification from internal systems.</li>
-                        <li>Identified and resolved suspected fraudulent transactions, which involved analyzing patterns and data points to detect anomalies.</li>
-                        <li>Maintained accurate documentation of all fraud cases, contributing to a robust dataset for risk analysis and prevention.</li>
-                        <li>Educated customers on secure banking practices, implicitly involving the understanding and communication of data security principles.</li>
-                        <li>Consistently met performance KPIs, demonstrating efficiency in data handling and problem resolution in a fast-paced environment.</li>
-                    </ul>
-                </div>
-
-                <div class="card">
-                    <h3 class="text-3xl font-semibold mb-3 text-blue-300">On-Site Data & Documentation Personnel</h3>
-                    <p class="text-xl text-gray-400">DHL Express, Penang</p>
-                    <p class="text-base text-gray-400 mb-5">2022 - 2023</p>
-                    <ul class="list-disc list-inside space-y-3 text-lg">
-                        <li>Managed and updated shipment records, delivery manifests, and customs documentation, ensuring data integrity for cross-border logistics.</li>
-                        <li>Accurately processed daily shipment and clearance data using DHL's internal systems, adhering to data quality and compliance standards.</li>
-                        <li>Conducted quality control checks on physical and digital documentation to identify discrepancies or missing information, crucial for data accuracy.</li>
-                        <li>Supported customs clearance by preparing and uploading required documents to relevant platforms for review and processing, involving efficient data flow.</li>
-                        <li>Monitored shipment delays or documentation issues and flagged them for quick resolution, indicating proactive data monitoring.</li>
-                        <li>Maintained organized filing systems (both digital and physical) to ensure traceability and audit readiness of data.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section id="projects" class="mb-20 fade-in-section">
-            <h2 class="section-title">
-                <i class="fas fa-project-diagram"></i>
-                Projects
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
-                <div class="card">
-                    <h3 class="text-3xl font-semibold mb-4 text-blue-300">HR Employee Attrition Analysis (Power BI & SQL)</h3>
-                    <p class="text-lg mb-4 text-gray-400"><strong>Technologies:</strong> Data Analysis, Visualization, SQL, Power BI</p>
-                    <ul class="list-disc list-inside space-y-3 text-lg">
-                        <li>Conducted Exploratory Data Analysis (EDA) to understand attrition trends and identify key contributing factors.</li>
-                        <li>Utilized **SQL** to extract, clean, and transform raw HR data from relational databases, preparing it for analysis.</li>
-                        <li>Designed and developed an interactive **Power BI dashboard** to visualize complex insights, enabling stakeholders to explore attrition patterns.</li>
-                        <li>Delivered actionable insights and data-driven recommendations that contributed to strategies for reducing employee turnover.</li>
-                    </ul>
-                    <div class="flex flex-wrap gap-5 mt-6">
-                        <a href="https://www.linkedin.com/feed/update/urn:li:activity:7338805251547779072/" target="_blank" class="project-link hover:text-blue-300">
-                            <i class="fab fa-linkedin mr-3 text-2xl"></i> View on LinkedIn
-                            <i class="fas fa-external-link-alt ml-3 text-base"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="card">
-                    <h3 class="text-3xl font-semibold mb-4 text-blue-300">Customer Churn Prediction Model (Python & Machine Learning)</h3>
-                    <p class="text-lg mb-4 text-gray-400"><strong>Technologies:</strong> Python, Scikit-learn, Pandas, Matplotlib, Data Modeling</p>
-                    <ul class="list-disc list-inside space-y-3 text-lg">
-                        <li>Developed a **customer churn prediction model** using Python and Scikit-learn to identify at-risk customers.</li>
-                        <li>Preprocessed and cleaned a large telecommunications dataset, handling missing values and categorical features.</li>
-                        <li>Applied various machine learning algorithms (e.g., Logistic Regression, Random Forest) and evaluated their performance.</li>
-                        <li>Visualized key insights into churn drivers using Matplotlib and provided recommendations for retention strategies.</li>
-                    </ul>
-                    <div class="flex flex-wrap gap-5 mt-6">
-                        <a href="#" target="_blank" class="project-link hover:text-blue-300">
-                            <i class="fas fa-link mr-3 text-2xl"></i> Live Demo (if applicable)
-                            <i class="fas fa-external-link-alt ml-3 text-base"></i>
-                        </a>
-                        <a href="#" target="_blank" class="project-link hover:text-gray-400">
-                            <i class="fab fa-github mr-3 text-2xl"></i> View Code
-                            <i class="fas fa-external-link-alt ml-3 text-base"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="education" class="mb-20 fade-in-section">
-            <h2 class="section-title">
-                <i class="fas fa-graduation-cap"></i>
-                Education
-            </h2>
-            <div class="card">
-                <h3 class="text-3xl font-semibold mb-3 text-blue-300">Bachelor of Social Science (Anthropology & Sociology)</h3>
-                <p class="text-xl text-gray-400">University of Science Malaysia (USM)</p>
-                <p class="text-base text-gray-400">2018 - 2022</p>
-            </div>
-        </section>
-
-        <section id="certifications" class="mb-20 fade-in-section">
-            <h2 class="section-title">
-                <i class="fas fa-certificate"></i>
-                Certifications
-            </h2>
-            <div class="card flex flex-wrap gap-4">
-                <span class="skill-badge">Google Data Analytics Professional Certificate</span>
-                <span class="skill-badge">Data Science Using Python and R</span>
-                <span class="skill-badge">Advanced SQL (Parts 1 & 2)</span>
-                <span class="skill-badge">Power BI Top Skills</span>
-                <span class="skill-badge">Excel 2013: Pivot Tables & Advanced Formulas</span>
-            </div>
-        </section>
-
-        <section id="soft-skills" class="mb-20 fade-in-section">
-            <h2 class="section-title">
-                <i class="fas fa-lightbulb"></i>
-                Soft Skills
-            </h2>
-            <div class="card flex flex-wrap gap-4">
-                <span class="skill-badge">Problem-Solving & Critical Thinking</span>
-                <span class="skill-badge">Communication & Collaboration</span>
-                <span class="skill-badge">Attention to Detail</span>
-                <span class="skill-badge">Time Management & Multitasking</span>
-                <span class="skill-badge">Adaptability & Learning Agility</span>
-                <span class="skill-badge">Stakeholder Management</span>
-            </div>
-        </section>
-
-        <section id="languages" class="mb-20 fade-in-section">
-            <h2 class="section-title">
-                <i class="fas fa-globe"></i>
-                Languages
-            </h2>
-            <div class="card flex flex-wrap gap-4">
-                <span class="skill-badge">English (Fluent)</span>
-                <span class="skill-badge">Malay (Fluent)</span>
-                <span class="skill-badge">Tamil (Native)</span>
-            </div>
-        </section>
-
-        <section id="contact" class="mb-20 fade-in-section">
-            <h2 class="section-title">
-                <i class="fas fa-envelope-open-text"></i>
-                Contact Me
-            </h2>
-            <div class="card">
-                <p class="mb-8 text-xl">
-                    I'm always open to discussing new projects, opportunities, or collaborations. Feel free to reach out using the form below, or connect with me on LinkedIn!
-                </p>
-                <form id="contact-form" class="space-y-6">
-                    <div>
-                        <label for="name" class="block text-lg font-medium text-gray-200 mb-2">Name</label>
-                        <input type="text" id="name" name="name" class="mt-1 block w-full bg-gray-700 text-gray-200 border border-gray-600 rounded-md shadow-sm p-4 focus:ring-blue-500 focus:border-blue-500 placeholder-gray-500 text-lg" placeholder="Your Name" required>
-                    </div>
-                    <div>
-                        <label for="email" class="block text-lg font-medium text-gray-200 mb-2">Email</label>
-                        <input type="email" id="email" name="email" class="mt-1 block w-full bg-gray-700 text-gray-200 border border-gray-600 rounded-md shadow-sm p-4 focus:ring-blue-500 focus:border-blue-500 placeholder-gray-500 text-lg" placeholder="your.email@example.com" required>
-                    </div>
-                    <div>
-                        <label for="message" class="block text-lg font-medium text-gray-200 mb-2">Message</label>
-                        <textarea id="message" name="message" rows="7" class="mt-1 block w-full bg-gray-700 text-gray-200 border border-gray-600 rounded-md shadow-sm p-4 focus:ring-blue-500 focus:border-blue-500 placeholder-gray-500 text-lg" placeholder="Your message here..." required></textarea>
-                    </div>
-                    <button type="submit" id="submit-btn" class="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white font-bold py-4 px-8 rounded-full transition-all duration-300 shadow-md text-xl transform hover:scale-105">
-                        Send Message <i class="fas fa-paper-plane ml-4"></i>
-                    </button>
-                    <div id="form-message" class="text-center mt-6 hidden text-blue-300 font-bold text-lg"></div>
-                </form>
-                <p class="text-sm text-gray-500 mt-8 text-center">
-                    (Note: This is a static form. For actual submission, backend integration would be required.)
-                </p>
-            </div>
-        </section>
-
     </main>
 
-    <button id="scroll-to-top" aria-label="Scroll to top">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
-    <footer class="bg-gray-950 text-white py-10 text-center shadow-inner relative z-10 border-t border-gray-800">
-        <div class="container mx-auto px-4">
-            <p class="text-xl">&copy; 2025 Kheesshok Vartharajoo. All rights reserved.</p>
-            <p class="text-lg text-gray-400 mt-4">
-                Connect with me on <a href="https://www.linkedin.com/in/kheesshok-vartharajoo-4233a4246/" target="_blank" class="hover:underline text-blue-400 transition-colors duration-200">LinkedIn</a>
-            </p>
-        </div>
+    <footer>
+        <p>&copy; 2025 Kheesshok29. All Rights Reserved.</p>
     </footer>
 
     <script>
-        // Particle background animation
-        const canvas = document.getElementById('particle-canvas');
-        const ctx = canvas.getContext('2d');
-        let particles = [];
-        let dataChunks = []; // New array for data chunks
-        const numParticles = 200; // Significantly increased particles
-        const particleSize = 1.8; // Slightly larger particles
-        const particleSpeed = 0.6; // Slightly faster
-        const particleFillColor = 'rgba(147, 197, 253, 0.8)'; // Tailwind blue-300 with higher opacity
-        const lineColor = 'rgba(147, 197, 253, 0.06)'; // Tailwind blue-300 with slightly higher opacity lines
+        const typedTextSpan = document.getElementById("typed-text");
+        const phrases = ["Data Developer", "ML Enthusiast", "Pythonista", "SQL Wizard"];
+        let phraseIndex = 0;
+        let charIndex = 0;
+        const typingSpeed = 100; // milliseconds
+        const deletingSpeed = 50; // milliseconds
+        const delayBetweenPhrases = 1500; // milliseconds
 
-        // Data Chunk specific properties
-        const numDataChunks = 15; // Increased number of larger data chunks
-        const minChunkSize = 15; // Larger min size
-        const maxChunkSize = 35; // Larger max size
-        const chunkSpeed = 0.25; // Slightly faster for chunks
-        const chunkFillColor = 'rgba(59, 130, 246, 0.15)'; // Subtle blue for chunks, more opaque
-        const chunkLineColor = 'rgba(59, 130, 246, 0.05)'; // Even subtler lines between chunks, more opaque
-        const maxDistance = 180; // Increased max distance for regular particles
-        const maxChunkConnectionDistance = 300; // Larger connection distance for chunks
-
-        let mouse = {
-            x: null,
-            y: null,
-            radius: 200 // Increased radius around mouse for particle interaction
-        };
-
-        window.addEventListener('mousemove', function(event) {
-            mouse.x = event.x;
-            mouse.y = event.y;
-        });
-
-        window.addEventListener('mouseout', function() {
-            mouse.x = undefined;
-            mouse.y = undefined;
-        });
-
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-            initParticles();
-            initDataChunks(); // Initialize data chunks on resize
-        }
-
-        class Particle {
-            constructor(x, y) {
-                this.x = x;
-                this.y = y;
-                this.size = Math.random() * particleSize + 0.5;
-                this.baseSpeedX = Math.random() * particleSpeed * 2 - particleSpeed;
-                this.baseSpeedY = Math.random() * particleSpeed * 2 - particleSpeed;
-                this.speedX = this.baseSpeedX;
-                this.speedY = this.baseSpeedY;
-            }
-
-            update() {
-                // Mouse repulsion/attraction
-                if (mouse.x && mouse.y) {
-                    const dx = this.x - mouse.x;
-                    const dy = this.y - mouse.y;
-                    const distance = Math.sqrt(dx * dx + dy * dy);
-
-                    if (distance < mouse.radius) {
-                        const forceDirectionX = dx / distance;
-                        const forceDirectionY = dy / distance;
-                        const force = (mouse.radius - distance) / mouse.radius;
-                        const directionX = forceDirectionX * force * 4; // Stronger repulsion
-                        const directionY = forceDirectionY * force * 4;
-
-                        this.speedX = this.baseSpeedX + directionX;
-                        this.speedY = this.baseSpeedY + directionY;
-                    } else {
-                        this.speedX = this.baseSpeedX;
-                        this.speedY = this.baseSpeedY;
-                    }
-                } else {
-                    this.speedX = this.baseSpeedX;
-                    this.speedY = this.baseSpeedY;
-                }
-
-                this.x += this.speedX;
-                this.y += this.speedY;
-
-                if (this.x > canvas.width || this.x < 0) this.speedX *= -1;
-                if (this.y > canvas.height || this.y < 0) this.speedY *= -1;
-            }
-
-            draw() {
-                ctx.fillStyle = particleFillColor;
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fill();
-            }
-        }
-
-        // New DataChunk class
-        class DataChunk {
-            constructor(x, y) {
-                this.x = x;
-                this.y = y;
-                this.width = Math.random() * (maxChunkSize - minChunkSize) + minChunkSize;
-                this.height = this.width; // Make it a square
-                this.baseSpeedX = Math.random() * chunkSpeed * 2 - chunkSpeed;
-                this.baseSpeedY = Math.random() * chunkSpeed * 2 - chunkSpeed;
-                this.speedX = this.baseSpeedX;
-                this.speedY = this.baseSpeedY;
-            }
-
-            update() {
-                // Mouse repulsion/attraction for chunks
-                if (mouse.x && mouse.y) {
-                    const dx = this.x - mouse.x;
-                    const dy = this.y - mouse.y;
-                    const distance = Math.sqrt(dx * dx + dy * dy);
-
-                    if (distance < mouse.radius * 2) { // Even larger repulsion radius for chunks
-                        const forceDirectionX = dx / distance;
-                        const forceDirectionY = dy / distance;
-                        const force = (mouse.radius * 2 - distance) / (mouse.radius * 2);
-                        const directionX = forceDirectionX * force * 5; // Stronger repulsion
-                        const directionY = forceDirectionY * force * 5;
-
-                        this.speedX = this.baseSpeedX + directionX;
-                        this.speedY = this.baseSpeedY + directionY;
-                    } else {
-                        this.speedX = this.baseSpeedX;
-                        this.speedY = this.baseSpeedY;
-                    }
-                } else {
-                    this.speedX = this.baseSpeedX;
-                    this.speedY = this.baseSpeedY;
-                }
-
-                this.x += this.speedX;
-                this.y += this.speedY;
-
-                if (this.x + this.width > canvas.width || this.x < 0) this.speedX *= -1;
-                if (this.y + this.height > canvas.height || this.y < 0) this.speedY *= -1;
-            }
-
-            draw() {
-                ctx.fillStyle = chunkFillColor;
-                ctx.fillRect(this.x, this.y, this.width, this.height);
-                ctx.strokeStyle = chunkLineColor;
-                ctx.strokeRect(this.x, this.y, this.width, this.height);
-            }
-        }
-
-        function initParticles() {
-            particles = [];
-            for (let i = 0; i < numParticles; i++) {
-                particles.push(new Particle(Math.random() * canvas.width, Math.random() * canvas.height));
-            }
-        }
-
-        function initDataChunks() {
-            dataChunks = [];
-            for (let i = 0; i < numDataChunks; i++) {
-                dataChunks.push(new DataChunk(Math.random() * canvas.width, Math.random() * canvas.height));
-            }
-        }
-
-        function connectElements(elements, connectionDistance, lineColor) {
-            for (let a = 0; a < elements.length; a++) {
-                for (let b = a; b < elements.length; b++) {
-                    const dx = elements[a].x - elements[b].x;
-                    const dy = elements[a].y - elements[b].y;
-                    const distance = Math.sqrt(dx * dx + dy * dy);
-
-                    if (distance < connectionDistance) {
-                        ctx.strokeStyle = lineColor;
-                        ctx.lineWidth = 0.5;
-                        ctx.beginPath();
-                        ctx.moveTo(elements[a].x, elements[a].y);
-                        ctx.lineTo(elements[b].x, elements[b].y);
-                        ctx.stroke();
-                    }
-                }
-            }
-        }
-
-        function animateParticles() {
-            requestAnimationFrame(animateParticles);
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-            for (let i = 0; i < particles.length; i++) {
-                particles[i].update();
-                particles[i].draw();
-            }
-            connectElements(particles, maxDistance, lineColor);
-
-            for (let i = 0; i < dataChunks.length; i++) {
-                dataChunks[i].update();
-                dataChunks[i].draw();
-            }
-            connectElements(dataChunks, maxChunkConnectionDistance, chunkLineColor);
-        }
-
-        window.addEventListener('resize', resizeCanvas);
-        resizeCanvas();
-        animateParticles();
-
-        // Scroll-to-top button functionality
-        const scrollToTopBtn = document.getElementById('scroll-to-top');
-
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                scrollToTopBtn.classList.add('show');
+        function type() {
+            if (charIndex < phrases[phraseIndex].length) {
+                typedTextSpan.textContent += phrases[phraseIndex].charAt(charIndex);
+                charIndex++;
+                setTimeout(type, typingSpeed);
             } else {
-                scrollToTopBtn.classList.remove('show');
+                setTimeout(erase, delayBetweenPhrases);
             }
-        });
+        }
 
-        scrollToTopBtn.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-
-        // Intersection Observer for fade-in sections
-        const sections = document.querySelectorAll('.fade-in-section');
-
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
-
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                } else {
-                    // Optional: Remove 'is-visible' if you want sections to fade out when scrolled away
-                    // entry.target.classList.remove('is-visible');
+        function erase() {
+            if (charIndex > 0) {
+                typedTextSpan.textContent = phrases[phraseIndex].substring(0, charIndex - 1);
+                charIndex--;
+                setTimeout(erase, deletingSpeed);
+            } else {
+                phraseIndex++;
+                if (phraseIndex >= phrases.length) {
+                    phraseIndex = 0;
                 }
-            });
-        }, observerOptions);
+                setTimeout(type, typingSpeed + 500);
+            }
+        }
 
-        sections.forEach(section => {
-            observer.observe(section);
+        document.addEventListener("DOMContentLoaded", function() {
+            if (phrases.length) setTimeout(type, typingSpeed + 500);
         });
-
-        // Skill filter functionality
-        const skillFilter = document.getElementById('skill-filter');
-        const skillBadgesContainer = document.getElementById('skill-badges-container');
-        const skillBadges = skillBadgesContainer.querySelectorAll('.skill-badge');
-
-        skillFilter.addEventListener('change', (event) => {
-            const selectedCategory = event.target.value;
-
-            skillBadges.forEach(badge => {
-                const badgeCategory = badge.dataset.category;
-                if (selectedCategory === 'all' || badgeCategory === selectedCategory) {
-                    badge.classList.remove('fade-out');
-                    badge.classList.add('fade-in');
-                    badge.classList.remove('hidden-skill'); // Ensure it's not hidden
-                } else {
-                    badge.classList.add('fade-out');
-                    badge.classList.remove('fade-in');
-                    // Use a timeout to hide it completely after the fade-out transition
-                    setTimeout(() => {
-                        if (badge.classList.contains('fade-out')) { // Only hide if it's still fading out
-                            badge.classList.add('hidden-skill');
-                        }
-                    }, 400); // Matches transition duration
-                }
-            });
-        });
-
-        // Contact Form Submission (placeholder)
-        const contactForm = document.getElementById('contact-form');
-        const submitBtn = document.getElementById('submit-btn');
-        const formMessage = document.getElementById('form-message');
-
-        contactForm.addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent default form submission
-
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Sending...';
-            submitBtn.classList.add('opacity-75');
-
-            // Simulate form submission
-            setTimeout(() => {
-                formMessage.classList.remove('hidden');
-                formMessage.textContent = 'Thank you for your message! I will get back to you soon.';
-                formMessage.classList.add('text-green-400'); // Success message color
-
-                // Reset form and button
-                contactForm.reset();
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Send Message ';
-                submitBtn.innerHTML += '<i class="fas fa-paper-plane ml-4"></i>'; // Re-add icon
-                submitBtn.classList.remove('opacity-75'); // Remove opacity after reset
-
-                setTimeout(() => {
-                    formMessage.classList.add('hidden');
-                    formMessage.textContent = '';
-                    formMessage.classList.remove('text-green-400');
-                }, 5000); // Hide message after 5 seconds
-            }, 2000); // Simulate 2-second delay
-        });
-
     </script>
 </body>
 </html>
