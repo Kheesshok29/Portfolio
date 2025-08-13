@@ -1,16 +1,15 @@
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KHEESSHOK S/O VARTHARAJOO - Data Developer Portfolio</title>
+    <title>KHEESSHOK VARTHARAJOO - Data Analyst Portfolio</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap');
         
         :root {
             --bg-color: #0d1117;
-            --main-color: #00ff80; /* Brighter neon green */
-            --accent-color: #00aaff; /* Neon blue */
+            --main-color: #00ff80; /* Bright green for text */
+            --accent-color: #00aaff; /* Neon blue for headings */
             --text-color: #c9d1d9;
             --secondary-text-color: #8b949e;
             --card-bg: rgba(22, 27, 34, 0.75); /* Semi-transparent background */
@@ -38,7 +37,8 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            opacity: 0.3; /* Subtle matrix effect */
+            opacity: 0.8; 
+            filter: brightness(0.6);
         }
 
         .container {
@@ -147,6 +147,13 @@
         li {
             margin-bottom: 0.5rem;
         }
+        
+        .list-with-bullets li::before {
+            content: ">> ";
+            color: var(--main-color);
+            font-weight: bold;
+            margin-right: 0.5em;
+        }
 
         .social-links {
             display: flex;
@@ -195,48 +202,62 @@
                 <span id="typed-text"></span>
                 <span class="typed-cursor">|</span>
             </div>
-            <h1>KHEESSHOK S/O VARTHARAJOO</h1>
-            <h2>Data Processing Specialist | Aspiring Data Analyst</h2>
+            <h1>KHEESSHOK VARTHARAJOO</h1>
+            <h2>Data Analyst</h2>
         </header>
 
         <section id="about">
-            <h3>Profile</h3>
+            <h3>Profile Summary</h3>
             <div class="card">
-                <p>Analytical and detail-oriented data professional with experience in data processing, customer service, and analytics. I am proficient in SQL, Excel, Tableau, Power BI, and CRM systems. Passionate about transforming raw data into actionable insights. Seeking a data-focused role to apply analytical skills and drive business decisions.</p>
+                <p>Data-driven professional with expertise in data processing, analytics, and customer operations across banking, SaaS, and logistics industries. Skilled in SQL, Power BI, and Salesforce CRM, with a proven track record of ensuring data integrity, streamlining workflows through automation, and delivering actionable insights for business decision-making. Adept at fraud prevention, compliance, and process optimization, supported by certifications in Google Data Analytics, Advanced SQL and Python. Recognized for attention to detail, problem-solving, and cross-functional collaboration in high-volume, fast-paced environments. Fluent in English, Malay, and Tamil.</p>
             </div>
         </section>
         
+        <section id="achievements">
+            <h3>Key Achievements</h3>
+            <div class="card">
+                <ul class="list-with-bullets">
+                    <li>Boosted reporting accuracy by 100% by designing and executing robust data cleansing and validation processes, ensuring error-free datasets across Salesforce CRM and relational databases.</li>
+                    <li>Increased fraud detection efficiency by 70% by analysing transactional patterns, creating risk-flag criteria, and delivering actionable insights to Fraud Risk teams for early intervention.</li>
+                </ul>
+            </div>
+        </section>
+
         <section id="experience">
-            <h3>Work Experience</h3>
+            <h3>Professional Experience</h3>
             <div class="card-grid">
                 <div class="card">
-                    <h4>Data Processing Specialist, The Access Group (2024 - Present)</h4>
-                    <ul>
-                        <li>Accurately processed and maintained high volumes of operational and customer data using Excel, Salesforce, and internal relational databases (RDB).</li>
-                        <li>Performed data cleansing, validation, and deduplication to ensure consistency and accuracy across systems.</li>
-                        <li>Utilized advanced Excel functions (VLOOKUP, XLOOKUP, pivot tables, IF statements, conditional formatting) for data transformation, tracking, and reporting.</li>
-                        <li>Updated and monitored records in Salesforce CRM, ensuring timely data input, case tracking, and client information accuracy.</li>
-                        <li>Queried relational databases using SQL to extract, analyze, and verify large datasets for reporting and quality assurance.</li>
-                        <li>Supported cross-functional teams with data requests by generating clean, reliable datasets tailored to their business needs.</li>
-                        <li>Created dashboards and visual reports using Power BI to provide insights into data trends, error rates, and processing efficiency.</li>
+                    <h4>Data Analyst, The Access Group (2024-Present)</h4>
+                    <ul class="list-with-bullets">
+                        <li>Processed and maintained large datasets from Salesforce CRM and internal relational databases, ensuring 100% accuracy and compliance with data governance policies.</li>
+                        <li>Performed data cleansing, validation, and deduplication to enhance data quality, improving reporting accuracy by 100%.</li>
+                        <li>Queried complex datasets using SQL to extract, join, and aggregate data for trend analysis, forecasting, and performance monitoring.</li>
+                        <li>Built interactive Power BI dashboards and visual analytics to provide stakeholders with insights on operational efficiency, error rates, and customer behaviour.</li>
+                        <li>Collaborated with cross-functional teams to define reporting requirements, delivering custom datasets that support business decision-making and strategic initiatives.</li>
+                        <li>Identified and resolved data anomalies by cross-referencing multiple data sources, ensuring consistency across systems.</li>
+                        <li>Implemented data security protocols to protect sensitive customer and business information, in compliance with GDPR and internal policies.</li>
+                        <li>Recommended and executed process improvement initiatives, including the standardization of reporting templates and automation of recurring analytics tasks.</li>
                     </ul>
                 </div>
                 <div class="card">
-                    <h4>Customer Service Senior Officer, United Overseas Bank (UOB) (Remote)</h4>
-                    <ul>
+                    <h4>Customer Service Senior Officer, United Overseas Bank (UOB) (2023-2024)</h4>
+                    <ul class="list-with-bullets">
                         <li>Delivered frontline support for high-volume inbound customer inquiries via phone, email, and digital platforms, ensuring prompt and accurate resolution across banking services.</li>
+                        <li>Handled a wide range of customer requests including account maintenance, card activation and blocking, digital banking assistance, and product enquiries (loans, credit cards, fixed deposits).</li>
                         <li>Identified, reported, and resolved suspected fraudulent transactions and scam-related activity, including phishing attempts, unauthorized transfers, and social engineering scams.</li>
+                        <li>Guided customers through fraud reporting procedures and initiated account holds or card blocks to prevent further losses.</li>
+                        <li>Collaborated with internal Fraud Risk and Investigation teams to escalate suspicious activity and support ongoing investigations.</li>
                         <li>Ensured compliance with AML (Anti-Money Laundering), KYC (Know Your Customer), and internal fraud prevention policies.</li>
                         <li>Consistently met or exceeded performance KPIs including average handling time (AHT), customer satisfaction (CSAT), and first call resolution (FCR).</li>
                     </ul>
                 </div>
                 <div class="card">
-                    <h4>On-Site Data & Documentation Personnel, DHL Express (2022-2023)</h4>
-                    <ul>
-                        <li>Managed and updated shipment records, delivery manifests, and customs documentation to ensure smooth and compliant cross-border logistics operations.</li>
-                        <li>Accurately processed daily shipment and clearance data using DHL's internal systems and tools, adhering to service-level agreements (SLAs) and compliance standards.</li>
-                        <li>Monitored shipment delays or documentation issues and flagged them to the appropriate departments for quick resolution.</li>
-                        <li>Maintained organized filing systems (both digital and physical) to ensure traceability and audit readiness.</li>
+                    <h4>Data Analyst, DHL Express (2022-2023)</h4>
+                    <ul class="list-with-bullets">
+                        <li>Analyzed financial, operational, and customs data to identify trends and support strategic decisions and business cases.</li>
+                        <li>Managed end-to-end data driven projects from scoping and collection to modeling and presenting results.</li>
+                        <li>Built and maintained dashboards and reports (e.g., using Power BI, SQL, Excel) to communicate insights clearly.</li>
+                        <li>Translated business needs into technical requirements and collaborated with data engineers for effective data flow.</li>
                     </ul>
                 </div>
             </div>
@@ -247,7 +268,7 @@
             <div class="card-grid">
                 <div class="card">
                     <h4>Data & BI Tools</h4>
-                    <ul>
+                    <ul class="list-with-bullets">
                         <li>SQL</li>
                         <li>Excel</li>
                         <li>Tableau</li>
@@ -256,27 +277,11 @@
                 </div>
                 <div class="card">
                     <h4>Programming & Systems</h4>
-                    <ul>
+                    <ul class="list-with-bullets">
                         <li>Python</li>
                         <li>R Programming</li>
                         <li>CRM</li>
                         <li>Salesforce</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <h4>Soft Skills</h4>
-                    <ul>
-                        <li>Problem-Solving & Critical Thinking</li>
-                        <li>Communication & Collaboration</li>
-                        <li>Attention to Detail</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <h4>Languages</h4>
-                    <ul>
-                        <li>English (Fluent)</li>
-                        <li>Malay (Fluent)</li>
-                        <li>Tamil (Native)</li>
                     </ul>
                 </div>
             </div>
@@ -292,10 +297,10 @@
                 </div>
                 <div class="card">
                     <h4>Certifications</h4>
-                    <ul>
+                    <ul class="list-with-bullets">
                         <li>Google Data Analytics Professional Certificate</li>
                         <li>Data Science Using Python and R</li>
-                        <li>Advanced SQL (Parts 1 & 2)</li>
+                        <li>Advanced SQL</li>
                         <li>Power BI Top Skills</li>
                         <li>Excel 2013: Pivot Tables & Advanced Formulas</li>
                     </ul>
@@ -308,7 +313,7 @@
             <div class="card-grid">
                 <div class="card">
                     <h4>HR Employee Attrition Analysis (Power BI & SQL)</h4>
-                    <ul>
+                    <ul class="list-with-bullets">
                         <li>Conducted EDA to understand attrition trends.</li>
                         <li>Used SQL to extract and clean HR data.</li>
                         <li>Visualized insights in a Power BI dashboard.</li>
@@ -334,59 +339,55 @@
     </main>
 
     <footer>
-        <p>&copy; 2025 KHEESSHOK S/O VARTHARAJOO. All Rights Reserved.</p>
+        <p>&copy; 2025 KHEESSHOK VARTHARAJOO. All Rights Reserved.</p>
     </footer>
 
     <script>
-        // === Background Animation (Matrix Rain) ===
+        // === Matrix Rain Animation ===
         const canvas = document.getElementById('matrix-canvas');
         const ctx = canvas.getContext('2d');
-
         let width, height;
-        let columns;
         let drops = [];
         const fontSize = 16;
-        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
-
-        function initializeMatrix() {
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890@#$%^&*()_+=-[]{};:|,.<>/?`~';
+        
+        function initializeCanvas() {
             width = canvas.width = window.innerWidth;
             height = canvas.height = window.innerHeight;
-
-            columns = Math.floor(width / fontSize);
             drops = [];
+            let columns = Math.floor(width / fontSize);
             for (let i = 0; i < columns; i++) {
                 drops[i] = 1;
             }
         }
-        window.addEventListener('resize', initializeMatrix);
-        initializeMatrix();
 
-        function drawMatrix() {
+        window.addEventListener('resize', initializeCanvas);
+        initializeCanvas();
+
+        function drawMatrixRain() {
             ctx.fillStyle = 'rgba(13, 17, 23, 0.05)';
             ctx.fillRect(0, 0, width, height);
-
-            ctx.fillStyle = '#00ff80'; // Neon green color
+            
+            ctx.fillStyle = '#00ff80'; // Bright green text
             ctx.font = `${fontSize}px Fira Code`;
-
+            
             for (let i = 0; i < drops.length; i++) {
-                const text = characters.charAt(Math.floor(Math.random() * characters.length));
+                let text = characters.charAt(Math.floor(Math.random() * characters.length));
                 ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
+                
                 if (drops[i] * fontSize > height && Math.random() > 0.975) {
                     drops[i] = 0;
                 }
+                
                 drops[i]++;
             }
         }
-
-        function animateMatrix() {
-            drawMatrix();
-            requestAnimationFrame(animateMatrix);
-        }
+        
+        setInterval(drawMatrixRain, 50);
 
         // === Typing Animation ===
         const typedTextSpan = document.getElementById("typed-text");
-        const phrases = ["Data Processing Specialist", "Aspiring Data Analyst", "Analytical Professional", "SQL Enthusiast"];
+        const phrases = ["Data Analyst", "Data-driven professional", "SQL Enthusiast", "Power BI Developer"];
         let phraseIndex = 0;
         let charIndex = 0;
         const typingSpeed = 100; // milliseconds
@@ -419,7 +420,6 @@
 
         document.addEventListener("DOMContentLoaded", function() {
             if (phrases.length) setTimeout(type, typingSpeed + 500);
-            animateMatrix(); // Start matrix animation on page load
         });
     </script>
 </body>
